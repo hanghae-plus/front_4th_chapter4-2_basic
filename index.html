@@ -5,6 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Tech Shop</title>
+    <meta
+      name="description"
+      content="Discover the latest VR headsets and tech gadgets at Tech Shop. Get the best deals on Apple, PlayStation, and Oculus headsets."
+    />
+    <meta
+      name="keywords"
+      content="VR headsets, Apple VR, PlayStation VR, Oculus, gaming headsets, best tech deals"
+    />
+    <meta name="author" content="Tech Shop" />
+    <meta property="og:title" content="Home - Tech Shop" />
+    <meta
+      property="og:description"
+      content="Find the best VR headsets and gaming accessories at Tech Shop."
+    />
+    <meta name="robots" content="index, follow" />
+
     <link
       href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap"
       rel="stylesheet"
@@ -70,13 +86,13 @@
             <span>Headsets</span>
           </a>
         </section>
-        <nav>
+        <nav aria-label="Main navigation">
           <ul>
             <li><a href="about.html">About us</a></li>
             <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
             <li><a href="index.html#newsletter-section">Newsletter</a></li>
             <li class="menu-icon">
-              <img src="images/menu_icon.webp" loading="lazy" />
+              <img src="images/menu_icon.webp" alt="menu icon" />
             </li>
           </ul>
         </nav>
@@ -84,9 +100,17 @@
     </header>
 
     <section class="hero">
-      <img class="desktop" src="images/Hero_Desktop.webp" loading="lazy" />
-      <img class="mobile" src="images/Hero_Mobile.webp" loading="lazy" />
-      <img class="tablet" src="images/Hero_Tablet.webp" loading="lazy" />
+      <img class="desktop" src="images/Hero_Desktop.webp" alt="banner for pc" />
+      <img
+        class="mobile"
+        src="images/Hero_Mobile.webp"
+        alt="banner for mobile"
+      />
+      <img
+        class="tablet"
+        src="images/Hero_Tablet.webp"
+        alt="banner for tablet"
+      />
 
       <div class="hero-content">
         <div class="container">
@@ -95,7 +119,7 @@
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium.
           </p>
-          <button>View Headsets</button>
+          <button aria-label="View Headsets">View Headsets</button>
         </div>
       </div>
     </section>
@@ -117,7 +141,7 @@
               <h3 class="price">
                 <span>US$ 450.00</span>
               </h3>
-              <button>Add to bag</button>
+              <button aria-label="Add to bag">Add to bag</button>
             </div>
           </div>
 
@@ -134,7 +158,7 @@
               <h3 class="price">
                 <span>US$ 399.99</span>
               </h3>
-              <button>Add to bag</button>
+              <button aria-label="Add to bag">Add to bag</button>
             </div>
           </div>
 
@@ -152,7 +176,7 @@
                 <span class="discounted-price">US$ 349.99</span>
                 <span class="original-price">US$ 419.99</span>
               </h3>
-              <button>Add to bag</button>
+              <button aria-label="Add to bag">Add to bag</button>
             </div>
           </div>
         </div>
@@ -172,7 +196,7 @@
       <p>Subscribe now and don't miss a single deal!</p>
       <form>
         <input type="email" name="email" placeholder="Your email..." />
-        <button type="submit">Subscribe</button>
+        <button type="submit" aria-label="Subscribe">Subscribe</button>
       </form>
     </section>
 
