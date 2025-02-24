@@ -95,7 +95,7 @@ section.hero {
 section.hero img {
   width: 100%;
   height: auto;
-  filter: brightness(50%);
+  filter: brightness(50%); /* 이미지 밝기를 낮춰 텍스트 대비를 높임 */
   display: none;
 }
 
@@ -119,9 +119,9 @@ section.hero img.desktop {
   height: 100%;
 }
 
-.hero-content h1 {
+.hero-content h2 {
   max-width: 495px;
-  color: #fff;
+  color: #fff; /* 흰색 텍스트로 대비 유지 */
   font-size: 50px;
   letter-spacing: 1.25px;
   line-height: 56px;
@@ -132,7 +132,7 @@ section.hero img.desktop {
 
 .hero-content p {
   max-width: 518px;
-  color: #fff;
+  color: #fff; /* 흰색 텍스트로 대비 유지 */
   font-weight: 300;
   font-size: 20px;
   letter-spacing: 0.5px;
@@ -141,12 +141,13 @@ section.hero img.desktop {
   margin-top: 0;
 }
 
+/* 기존 버튼 배경(#33c6dd)은 흰색 텍스트와 대비가 부족할 수 있으므로, 더 어두운 파란색(#005f73)으로 변경하여 대비를 높임 */
 .hero-content button {
   height: 50px;
   width: 220px;
   max-width: 100%;
   border-radius: 92px;
-  background-color: #33c6dd;
+  background-color: #005f73;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -158,10 +159,11 @@ section.hero img.desktop {
   cursor: pointer;
 }
 
+/* 호버 상태도 대비를 유지하도록 살짝 밝은 어두운 파란색(#007a99) 적용 */
 .hero-content button:hover {
-  color: #33c6dd;
-  background-color: #fff;
-  border: 1px solid #33c6dd;
+  background-color: #007a99;
+  border: none;
+  color: #fff;
 }
 
 section.country-bar {
@@ -181,7 +183,7 @@ section.best-sellers {
   padding-top: 80px;
 }
 
-section.best-sellers h1 {
+section.best-sellers h2 {
   text-align: center;
   font-size: 34px;
   letter-spacing: 0.85px;
@@ -249,7 +251,6 @@ section.best-sellers .product-slider .product.new::before {
   text-align: center;
   padding: 4px 15px;
   border-radius: 40px;
-  background-color: #614dc9;
 }
 
 section.best-sellers .product-slider .product .product-info {
@@ -322,9 +323,10 @@ section.best-sellers .product-slider .product .product-info button {
   cursor: pointer;
 }
 
-section.best-sellers .product-slider .product:hover .product-info button {
-  background-color: #33c6dd;
-  border: 1px solid #33c6dd;
+/* 호버 시 기존 #33c6dd 대신 어두운 파란색(#005f73)을 사용하여 대비를 높임 */
+section.best-sellers .product-slider .product .product-info button:hover {
+  background-color: #005f73;
+  border: 1px solid #005f73;
   color: white;
 }
 
@@ -336,7 +338,7 @@ section.newsletter {
   margin: 80px auto;
 }
 
-section.newsletter h3 {
+section.newsletter h2 {
   font-size: 24px;
   letter-spacing: 0.6px;
   line-height: 42px;
