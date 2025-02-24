@@ -10,7 +10,7 @@ function createSkeletons() {
     // image 영역 skeleton
     const skeletonPicture = document.createElement("div");
     skeletonPicture.classList.add("product-picture", "skeleton");
-    skeletonPicture.style.height = "250px";
+    skeletonPicture.style.height = "160px";
 
     // info 영역 skeleton
     const skeletonInfo = document.createElement("div");
@@ -91,14 +91,21 @@ function displayProducts(products) {
     const pictureDiv = document.createElement("div");
     pictureDiv.classList.add("product-picture");
 
+    const picture = document.createElement("picture");
+    const source = document.createElement("source");
+    source.type = "image/webp";
+    source.srcset = product.image;
+
     const img = document.createElement("img");
     img.src = product.image;
     img.alt = `product: ${product.title}`;
     img.width = 250;
     img.loading = "lazy";
-    img.srcset = `${product.image} 250w, ${product.image} 500w, ${product.image} 1000w`;
 
-    pictureDiv.appendChild(img);
+    picture.appendChild(source);
+    picture.appendChild(img);
+
+    pictureDiv.appendChild(picture);
 
     // Create the product info div
     const infoDiv = document.createElement("div");
