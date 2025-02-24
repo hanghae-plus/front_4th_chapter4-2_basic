@@ -96,7 +96,7 @@ section.hero img {
   width: 100%;
   height: auto;
   filter: brightness(50%); /* 이미지 밝기를 낮춰 텍스트 대비를 높임 */
-  display: none;
+  display: initial;
 }
 
 section.hero img.desktop {
