@@ -225,6 +225,7 @@ section.best-sellers .product-slider .product {
 
 section.best-sellers .product-slider .product img {
   max-width: 40%;
+  height: auto;
 }
 
 section.best-sellers .product-slider .product .product-picture {
