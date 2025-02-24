@@ -51,7 +51,7 @@
               VR
               <span class="blue-dot"></span>
               <span class="blue-dot"></span>
-              Headsets!
+              Headsets
             </h1>
           </a>
         </section>
@@ -71,11 +71,26 @@
     <section class="hero">
       <picture>
         <!-- 모바일: 최대 575px 이하일 때 -->
-        <source media="(max-width: 575px)" srcset="images/Hero_Mobile.webp" />
+        <source
+          width="576"
+          height="576"
+          media="(max-width: 575px)"
+          srcset="images/Hero_Mobile.webp"
+        />
         <!-- 태블릿: 576px ~ 960px 범위일 때 -->
-        <source media="(max-width: 960px)" srcset="images/Hero_Tablet.webp" />
+        <source
+          width="960"
+          height="770"
+          media="(max-width: 960px)"
+          srcset="images/Hero_Tablet.webp"
+        />
         <!-- 데스크탑: 그 외 모든 경우에 기본적으로 사용 -->
-        <img src="images/Hero_Desktop.webp" alt="Hero image" />
+        <img
+          width="1920"
+          height="893"
+          src="images/Hero_Desktop.webp"
+          alt="Hero image"
+        />
       </picture>
 
       <div class="hero-content">
