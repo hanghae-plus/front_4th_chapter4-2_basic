@@ -100,30 +100,34 @@
     </header>
 
     <section class="hero">
-      <img
-        class="desktop"
-        src="images/Hero_Desktop.webp"
-        alt="banner for pc"
-        fetchpriority="high"
-        width="2160px"
-        height="1005px"
-      />
-      <img
-        class="mobile"
-        src="images/Hero_Mobile.webp"
-        alt="banner for mobile"
-        fetchpriority="high"
-        width="864px"
-        height="864px"
-      />
-      <img
-        class="tablet"
-        src="images/Hero_Tablet.webp"
-        alt="banner for tablet"
-        fetchpriority="high"
-        width="1440px"
-        height="1155px"
-      />
+      <picture>
+        <!-- 모바일 (최대 575px) -->
+        <source
+          srcset="images/Hero_Mobile.webp"
+          media="(max-width: 575px)"
+          width="864"
+          height="864"
+          fetchpriority="high"
+        />
+
+        <!-- 태블릿 (576px ~ 1024px) -->
+        <source
+          srcset="images/Hero_Tablet.webp"
+          media="(min-width: 576px) and (max-width: 1024px)"
+          width="1440"
+          height="1155"
+          fetchpriority="high"
+        />
+
+        <!-- 기본 데스크톱 (1025px 이상) -->
+        <img
+          src="images/Hero_Desktop.webp"
+          alt="banner for desktop"
+          width="2160"
+          height="1005"
+          fetchpriority="high"
+        />
+      </picture>
 
       <div class="hero-content">
         <div class="container">
