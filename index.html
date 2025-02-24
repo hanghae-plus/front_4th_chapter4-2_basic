@@ -69,24 +69,14 @@
     </header>
 
     <section class="hero">
-      <img
-        class="desktop"
-        src="images/Hero_Desktop.webp"
-        alt="desktop"
-        loading="lazy"
-      />
-      <img
-        class="mobile"
-        src="images/Hero_Mobile.webp"
-        alt="mobile"
-        loading="lazy"
-      />
-      <img
-        class="tablet"
-        src="images/Hero_Tablet.webp"
-        alt="tablet"
-        loading="lazy"
-      />
+      <picture>
+        <!-- 모바일: 최대 575px 이하일 때 -->
+        <source media="(max-width: 575px)" srcset="images/Hero_Mobile.webp" />
+        <!-- 태블릿: 576px ~ 960px 범위일 때 -->
+        <source media="(max-width: 960px)" srcset="images/Hero_Tablet.webp" />
+        <!-- 데스크탑: 그 외 모든 경우에 기본적으로 사용 -->
+        <img src="images/Hero_Desktop.webp" alt="Hero image" loading="lazy" />
+      </picture>
 
       <div class="hero-content">
         <div class="container">
