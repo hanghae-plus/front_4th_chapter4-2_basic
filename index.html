@@ -61,7 +61,7 @@
             <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
             <li><a href="index.html#newsletter-section">Newsletter</a></li>
             <li class="menu-icon">
-              <img src="images/menu_icon.png" alt="menu icon" />
+              <img src="images/menu_icon.png" alt="menu icon" loading="lazy" />
             </li>
           </ul>
         </nav>
@@ -69,9 +69,24 @@
     </header>
 
     <section class="hero">
-      <img class="desktop" src="images/Hero_Desktop.jpg" alt="desktop" />
-      <img class="mobile" src="images/Hero_Mobile.jpg" alt="mobile" />
-      <img class="tablet" src="images/Hero_Tablet.jpg" alt="tablet" />
+      <img
+        class="desktop"
+        src="images/Hero_Desktop.jpg"
+        alt="desktop"
+        loading="lazy"
+      />
+      <img
+        class="mobile"
+        src="images/Hero_Mobile.jpg"
+        alt="mobile"
+        loading="lazy"
+      />
+      <img
+        class="tablet"
+        src="images/Hero_Tablet.jpg"
+        alt="tablet"
+        loading="lazy"
+      />
 
       <div class="hero-content">
         <div class="container">
@@ -94,7 +109,11 @@
         <div class="container">
           <div class="product new">
             <div class="product-picture">
-              <img src="images/vr1.jpg" alt="product: Penom Case" />
+              <img
+                src="images/vr1.jpg"
+                alt="product: Penom Case"
+                loading="lazy"
+              />
             </div>
             <div class="product-info">
               <h5 class="categories">Headsets, Apple</h5>
@@ -111,6 +130,7 @@
               <img
                 src="images/vr2.jpg"
                 alt="product: Noise Cancelling Headphone"
+                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -127,7 +147,9 @@
             <div class="product-picture">
               <img
                 src="images/vr3.jpg"
-                alt="product: Canon Digital SLR EOS Rebel T6"
+                alt="product: Canon Digital SLR EOS
+              Rebel T6"
+                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -206,7 +228,8 @@
 
     <a href="#" id="open_preferences_center">Update cookies preferences</a>
 
-    <script type="text/javascript" src="/js/main.js"></script>
+    <!-- 렌더링 차단 최소화 -->
+    <script type="text/javascript" src="/js/main.js" defer></script>
     <script type="text/javascript" src="/js/products.js"></script>
     <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
     <script
