@@ -1,4 +1,4 @@
-// js/main.js - 필수적인 초기 기능만 포함
+// js/main.js - 이벤트 위임 적용
 function showTopBar(){
     let country = "France";
     let vat = 20;
@@ -11,17 +11,50 @@ function showTopBar(){
     });
 }
 
+// 문서 전체에 대한 이벤트 위임 설정
+function setupGlobalEventDelegation() {
+    // 문서 레벨에서 클릭 이벤트 리스너 한 번만 추가
+    document.addEventListener('click', (event) => {
+        // 메뉴 아이콘 클릭 처리
+        if (event.target.closest('.menu-icon')) {
+            handleMenuIconClick();
+        }
+        
+        // 기타 전역 클릭 이벤트 처리
+        if (event.target.closest('#open_preferences_center')) {
+            // 쿠키 설정 센터 열기 처리
+            event.preventDefault();
+            if (typeof cookieconsent !== 'undefined') {
+                cookieconsent.showPreferencesModal();
+            }
+        }
+    });
+    
+    // 문서 레벨에서 제출 이벤트 리스너 한 번만 추가
+    document.addEventListener('submit', (event) => {
+        // 뉴스레터 폼 제출 처리
+        if (event.target.closest('.newsletter form')) {
+            event.preventDefault();
+            const form = event.target;
+            const email = form.querySelector('input[type="email"]').value;
+            if (email) {
+                alert(`Thank you for subscribing with ${email}!`);
+                form.reset();
+            }
+        }
+    });
+}
+
+// 메뉴 아이콘 클릭 처리 함수
+function handleMenuIconClick() {
+    console.log("메뉴 아이콘 클릭됨");
+    // 메뉴 토글 로직
+}
+
 // 페이지 로드 완료 후 호출
 document.addEventListener('DOMContentLoaded', () => {
     showTopBar();
-    
-    // 메뉴 아이콘 클릭 이벤트 (필요한 경우)
-    const menuIcon = document.querySelector('.menu-icon');
-    if (menuIcon) {
-        menuIcon.addEventListener('click', () => {
-            // 메뉴 토글 로직
-        });
-    }
+    setupGlobalEventDelegation();
     
     // 제품 데이터 지연 로딩
     if (document.getElementById('all-products')) {
@@ -32,16 +65,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-// 뉴스레터 폼 제출 처리 - 사용자 상호작용 시에만 필요
-const newsletterForm = document.querySelector('.newsletter form');
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = this.querySelector('input[type="email"]').value;
-        if (email) {
-            alert(`Thank you for subscribing with ${email}!`);
-            this.reset();
-        }
-    });
-}

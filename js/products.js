@@ -1,4 +1,4 @@
-// js/products.js - 모듈로 변환
+// js/products.js - 이벤트 위임 적용
 export async function loadProducts() {
     try {
         const response = await fetch("https://fakestoreapi.com/products");
@@ -28,6 +28,9 @@ function displayProducts(products) {
     
     // 한 번에 DOM에 추가
     container.appendChild(fragment);
+    
+    // 이벤트 위임: 컨테이너에 하나의 이벤트 리스너만 추가
+    setupContainerEventDelegation(container);
 }
 
 // 제품 요소 생성 함수로 분리
@@ -35,6 +38,7 @@ function createProductElement(product) {
     // 메인 제품 div 생성
     const productElement = document.createElement('div');
     productElement.classList.add('product');
+    productElement.dataset.productId = product.id; // 제품 ID를 데이터 속성으로 추가
     
     // 제품 이미지 div 생성
     const pictureDiv = document.createElement('div');
@@ -66,9 +70,7 @@ function createProductElement(product) {
     
     const button = document.createElement('button');
     button.textContent = 'Add to bag';
-    
-    // 인터섹션 옵저버로 비동기 이벤트 핸들러 설정
-    setupButtonInteraction(button);
+    button.dataset.action = 'add-to-bag'; // 버튼 액션을 데이터 속성으로 추가
     
     // 요소들을 제품 정보 div에 추가
     infoDiv.appendChild(category);
@@ -83,20 +85,32 @@ function createProductElement(product) {
     return productElement;
 }
 
-// 버튼에 대한 인터랙션 설정 (성능 향상을 위한 지연 바인딩)
-function setupButtonInteraction(button) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                button.addEventListener('click', () => {
-                    alert('Added to bag!');
-                });
-                observer.disconnect(); // 한 번 추가한 후 관찰 중지
+// 이벤트 위임: 컨테이너에 하나의 이벤트 리스너 추가
+function setupContainerEventDelegation(container) {
+    container.addEventListener('click', (event) => {
+        // 이벤트 위임: 클릭된 요소 또는 상위 요소가 특정 선택자와 일치하는지 확인
+        const addToCartButton = event.target.closest('[data-action="add-to-bag"]');
+        
+        if (addToCartButton) {
+            // 제품 요소 찾기 (버튼의 상위 요소)
+            const productElement = addToCartButton.closest('.product');
+            const productId = productElement?.dataset.productId;
+            
+            if (productId) {
+                // 장바구니에 추가 로직 실행
+                addToCart(productId);
             }
-        });
-    }, { threshold: 0.1 });
+        }
+    });
+}
+
+// 장바구니에 추가하는 함수
+function addToCart(productId) {
+    console.log(`제품 ID: ${productId}가 장바구니에 추가되었습니다.`);
+    alert('Added to bag!');
     
-    observer.observe(button);
+    // 실제 장바구니 추가 로직은 여기에 구현
+    // 예: 장바구니 데이터 업데이트, API 호출 등
 }
 
 // 무거운 계산 작업을 웹 워커로 이동
