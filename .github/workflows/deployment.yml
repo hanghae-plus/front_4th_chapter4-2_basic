@@ -1,4 +1,4 @@
-name: Deploy to S3 and invalidate CloudFront
+name: Deploy to S3 and invalidate CloudFront and lighthouse-audit
 
 on:
   push:
@@ -182,7 +182,7 @@ jobs:
                 hour: '2-digit',
                 minute: '2-digit',
                 hour12: false
-              })}`,
+              })} (${${{ github.event.head_commit.message }}.split(":")[1].trim()})`,
               body: body,
               labels: ['lighthouse-audit', 'web-vitals']
             });
