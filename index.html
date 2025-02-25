@@ -63,20 +63,16 @@
         <section class="hero">
 
             <picture>
-                <source type="image/webp" srcset="images/Hero_Desktop.webp">
-                <source type="image/jpg" srcset="images/Hero_Desktop.jpg">
-                <img class="desktop" src="images/Hero_Desktop.jpg" alt="Desktop Hero Image" loading="lazy">
-            </picture>
-            <picture>
-                <source type="image/webp" srcset="images/Hero_Mobile.webp">
-                <source type="image/jpg" srcset="images/Hero_Mobile.jpg">
-                <img class="mobile" src="images/Hero_Mobile.jpg" alt="Mobile Hero Image" loading="lazy">
-            </picture>
+                <source type="image/webp" srcset="images/Hero_Desktop.webp" width="1920" height="893" media="(min-width: 961px)">
+                <source type="image/jpg" srcset="images/Hero_Desktop.jpg" width="1920" height="893" media="(min-width: 961px)">
 
-            <picture>
-                <source type="image/webp" srcset="images/Hero_Tablet.webp">
-                <source type="image/jpg" srcset="images/Hero_Tablet.jpg">
-                <img class="tablet" src="images/Hero_Tablet.jpg" alt="Tablet Hero Image" loading="lazy">
+                <source type="image/webp" srcset="images/Hero_Tablet.webp" width="960" height="770" media="(min-width: 577px) and (max-width: 960px)">
+                <source type="image/jpg" srcset="images/Hero_Tablet.jpg" width="960" height="770" media="(min-width: 577px) and (max-width: 960px)">
+
+                <source type="image/webp" srcset="images/Hero_Mobile.webp" width="576" height="576" media="(max-width: 576px)">
+                <source type="image/jpg" srcset="images/Hero_Mobile.jpg" width="576" height="576" media="(max-width: 576px)">
+
+                <img class="mobile" src="images/Hero_Mobile.jpg" alt="Mobile Hero Image" loading="lazy" width="576" height="576">
             </picture>
 
             <div class="hero-content">
