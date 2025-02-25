@@ -44,9 +44,6 @@ jobs:
     name: Lighthouse Audit
     runs-on: ubuntu-latest
     steps:      
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
@@ -60,7 +57,7 @@ jobs:
         id: lighthouse
         continue-on-error: true
         run: |
-          URL="$DEPLOY_URL"
+          URL="${{ vars.DEPLOY_URL }}"
           lhci autorun --collect.url=$URL
           
       - name: Create GitHub Issue with Results
