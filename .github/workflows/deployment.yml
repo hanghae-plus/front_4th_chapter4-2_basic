@@ -1,4 +1,4 @@
-name: Deploy Next.js to S3 and invalidate CloudFront
+name: Deploy S3 and invalidate CloudFront
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} --delete
+          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} --exclude ".github/*" --delete
 
       - name: Invalidate CloudFront cache
         run: |
