@@ -11,15 +11,16 @@
 
     <!-- 중요 CSS만 인라인으로 포함 -->
     <style>
-        /* 중요 렌더링을 위한 최소 CSS */
+        /* 전체 레이아웃에 필요한 최소 CSS를 인라인으로 포함 */
         body {margin: 0; font-family: sans-serif; padding-top: 80px;}
         .container {width: 1440px; max-width: 90%; margin: auto; padding: 0 16px;}
         header {background-color: #FFF; box-shadow: 0 1px 6px 0 rgba(0,0,0,0.15); height: 80px; position: fixed; top: 0; left: 0; width: 100%; z-index: 1;}
         header .container {display: flex; align-items: center; justify-content: space-between; height: 100%;}
-        section.hero {position: relative; overflow: hidden;}
-        section.hero img {width: 100%; height: auto; filter: brightness(50%);}
-        section.country-bar.hidden {display: none;}
-        .progressive-image {opacity: 1; transition: opacity 0.3s ease;}
+        section.hero {position: relative; overflow: hidden; min-height: 400px;} /* 최소 높이 설정 */
+        section.hero img {width: 100%; height: auto; max-height: 660px; filter: brightness(50%);}
+        section.country-bar {height: 60px;}
+        section.best-sellers .product-slider .product {min-height: 450px;} /* 최소 높이 설정 */
+        .product-picture {min-height: 250px;} /* 최소 높이 설정 */
     </style>
 
     <!-- 서버 연결 최적화 -->
@@ -141,7 +142,7 @@
         <source srcset="images/Hero_Mobile.webp" media="(max-width: 576px)" type="image/webp">
         <source srcset="images/Hero_Mobile.jpg" media="(max-width: 576px)" type="image/jpeg">
 
-        <!-- 메인 이미지 - width/height 속성으로 레이아웃 시프트 방지 -->
+        <!-- 메인 이미지 - 명확한 width/height 속성으로 레이아웃 시프트 방지 -->
         <img class="desktop hero-image"
              src="images/Hero_Desktop.webp"
              alt="VR Headsets"
@@ -173,13 +174,12 @@
         <div class="container">
             <div class="product new">
                 <div class="product-picture">
-                    <!-- 최적화된 이미지 로딩 -->
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' fill='%23f0f0f0'%3E%3Crect width='250' height='250' /%3E%3C/svg%3E"
                          data-src="images/vr1.webp"
                          alt="product: Apple Headset"
                          width="250" height="250"
                          loading="lazy"
-                         class="progressive-image blur">
+                         class="progressive-image">
                 </div>
                 <div class="product-info">
                     <h5 class="categories">Headsets, Apple</h5>
@@ -194,11 +194,11 @@
             <div class="product new">
                 <div class="product-picture">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' fill='%23f0f0f0'%3E%3Crect width='250' height='250' /%3E%3C/svg%3E"
-                         data-src="images/vr2.webp"
-                         alt="product: Playstation Headset"
+                         data-src="images/vr1.webp"
+                         alt="product: Apple Headset"
                          width="250" height="250"
                          loading="lazy"
-                         class="progressive-image blur">
+                         class="progressive-image">
                 </div>
                 <div class="product-info">
                     <h5 class="categories">Headsets, PS</h5>
@@ -213,11 +213,11 @@
             <div class="product">
                 <div class="product-picture">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' fill='%23f0f0f0'%3E%3Crect width='250' height='250' /%3E%3C/svg%3E"
-                         data-src="images/vr3.webp"
-                         alt="product: Oculus Headset"
+                         data-src="images/vr1.webp"
+                         alt="product: Apple Headset"
                          width="250" height="250"
                          loading="lazy"
-                         class="progressive-image blur">
+                         class="progressive-image">
                 </div>
                 <div class="product-info">
                     <h5 class="categories">Headsets, Oculus</h5>
@@ -305,7 +305,7 @@
 
 <!-- 이미지 로딩 스크립트 -->
 <script>
-  // 프로그레시브 이미지 로딩
+  // 프로그레시브 이미지 로딩 개선
   document.addEventListener('DOMContentLoaded', function() {
     // 이미지 관찰자 초기화
     const imgObserver = new IntersectionObserver(function(entries, observer) {
@@ -315,9 +315,17 @@
           const src = img.dataset.src;
 
           if (src) {
-            img.src = src;
-            img.classList.remove('blur');
-            observer.unobserve(img);
+            // 이미지를 미리 로드하여 크기 계산 후 적용
+            const tempImg = new Image();
+            tempImg.onload = function() {
+              // 이미지 크기 및 비율 유지
+              img.src = src;
+              // 페이드인 효과 대신 불투명도만 변경
+              img.style.opacity = '1';
+              img.classList.remove('blur');
+              observer.unobserve(img);
+            };
+            tempImg.src = src;
           }
         }
       });
@@ -327,7 +335,12 @@
     });
 
     // 모든 지연 로딩 이미지에 관찰자 적용
-    document.querySelectorAll('.progressive-image').forEach(function(img) {
+    document.querySelectorAll('img[data-src]').forEach(function(img) {
+      // 이미지에 기본 크기 설정으로 레이아웃 시프트 방지
+      if (!img.width || !img.height) {
+        img.width = 250;
+        img.height = 250;
+      }
       imgObserver.observe(img);
     });
   });
