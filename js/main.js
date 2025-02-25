@@ -2,15 +2,14 @@
 function showTopBar(){
     let country = "France";
     let vat = 20;
-    // 클래스 전환 방식으로 변경하여 레이아웃 시프트 방지
-    requestIdleCallback(() => {
+    // 비동기 작업으로 전환
+    setTimeout(() => {
         const countryBar = document.querySelector("section.country-bar");
         if (countryBar) {
             countryBar.innerHTML = `<p>Orders to <b>${country}</b> are subject to <b>${vat}%</b> VAT</p>`;
-            // hidden 클래스 제거 대신 visible 클래스 추가
-            countryBar.classList.add('visible');
+            countryBar.classList.remove('hidden');
         }
-    });
+    }, 0);
 }
 
 // 문서 전체에 대한 이벤트 위임 설정

@@ -58,40 +58,26 @@ function displayProducts(products) {
     const container = document.querySelector('#all-products .container');
     if (!container) return;
     
-    // 로딩 상태의 기존 높이 측정
-    const oldHeight = container.offsetHeight;
+    // 기존 로딩 상태 제거
+    container.innerHTML = '';
     
-    // 새 콘텐츠 생성을 위한 DocumentFragment 사용
+    // 제품 요소 생성을 위한 DocumentFragment 사용
     const fragment = document.createDocumentFragment();
     
     // 각 제품에 대해 HTML 구조 생성
     products.forEach(product => {
+        // 이미지 lazy loading 적용
         const productElement = createProductElement(product);
         fragment.appendChild(productElement);
     });
     
-    // 임시 래퍼에 콘텐츠 추가하여 새 높이 측정
-    const tempWrapper = document.createElement('div');
-    tempWrapper.style.visibility = 'hidden';
-    tempWrapper.style.position = 'absolute';
-    tempWrapper.style.width = container.offsetWidth + 'px';
-    tempWrapper.appendChild(fragment.cloneNode(true));
-    document.body.appendChild(tempWrapper);
-    
-    // 높이 설정으로 레이아웃 시프트 방지
-    container.style.minHeight = oldHeight + 'px';
-    
-    // 콘텐츠 교체
-    container.innerHTML = '';
+    // 한 번에 DOM에 추가
     container.appendChild(fragment);
     
-    // 임시 래퍼 제거
-    document.body.removeChild(tempWrapper);
-    
-    // 이벤트 위임 설정
+    // 이벤트 위임: 컨테이너에 하나의 이벤트 리스너만 추가
     setupContainerEventDelegation(container);
     
-    // 이미지 로딩 설정
+    // 프로그레시브 이미지 로딩 적용
     setupProgressiveImageLoading();
 }
 
