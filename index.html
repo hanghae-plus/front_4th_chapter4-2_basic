@@ -1,4 +1,3 @@
-<!--index.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +12,10 @@
     <link rel="preload" href="/css/styles.css" as="style">
     <link rel="preconnect" href="https://fakestoreapi.com">
 
-    <!-- 중요한 이미지 프리로드 -->
-    <link rel="preload" href="images/Hero_Desktop.jpg" as="image" media="(min-width: 961px)">
-    <link rel="preload" href="images/Hero_Tablet.jpg" as="image" media="(min-width: 577px) and (max-width: 960px)">
-    <link rel="preload" href="images/Hero_Mobile.jpg" as="image" media="(max-width: 576px)">
+    <!-- 중요한 이미지 프리로드 (WebP 포맷으로 교체) -->
+    <link rel="preload" href="images/Hero_Desktop.webp" as="image" media="(min-width: 961px)">
+    <link rel="preload" href="images/Hero_Tablet.webp" as="image" media="(min-width: 577px) and (max-width: 960px)">
+    <link rel="preload" href="images/Hero_Mobile.webp" as="image" media="(max-width: 576px)">
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -36,6 +35,21 @@
         }
       });
     </script>
+
+    <!-- 프로그레시브 이미지 로딩을 위한 스타일 -->
+    <style>
+        .progressive-image {
+            width: 100%;
+            height: auto;
+            transition: filter 0.3s ease-out;
+        }
+        .progressive-image.blur {
+            filter: blur(10px);
+        }
+        .progressive-image.loaded {
+            filter: blur(0);
+        }
+    </style>
 </head>
 
 <body>
@@ -59,17 +73,28 @@
                 <li><a href="about.html">About us</a></li>
                 <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
                 <li><a href="index.html#newsletter-section">Newsletter</a></li>
-                <li class="menu-icon"><img src="images/menu_icon.png" alt="Menu icon" width="24" height="24"></li>
+                <li class="menu-icon"><img src="images/menu_icon.webp" alt="Menu icon" width="24" height="24"></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <section class="hero">
-    <!-- 반응형 이미지 및 이미지 크기 명시 -->
-    <img class="desktop" src="images/Hero_Desktop.jpg" alt="VR Headsets" width="1440" height="660">
-    <img class="mobile" src="images/Hero_Mobile.jpg" alt="VR Headsets Mobile" width="375" height="315">
-    <img class="tablet" src="images/Hero_Tablet.jpg" alt="VR Headsets Tablet" width="768" height="350">
+    <!-- 반응형 이미지 및 WebP 포맷 지원 추가 -->
+    <picture>
+        <source srcset="images/Hero_Desktop.webp" media="(min-width: 961px)" type="image/webp">
+        <source srcset="images/Hero_Desktop.jpg" media="(min-width: 961px)" type="image/jpeg">
+
+        <source srcset="images/Hero_Tablet.webp" media="(min-width: 577px) and (max-width: 960px)" type="image/webp">
+        <source srcset="images/Hero_Tablet.webp" media="(min-width: 577px) and (max-width: 960px)" type="image/jpeg">
+
+        <source srcset="images/Hero_Mobile.webp" media="(max-width: 576px)" type="image/webp">
+        <source srcset="images/Hero_Mobile.webp" media="(max-width: 576px)" type="image/jpeg">
+
+        <!-- 폴백 이미지 -->
+        <img class="desktop" src="images/Hero_Desktop_Placeholder.jpg" data-src="images/Hero_Desktop.jpg"
+             alt="VR Headsets" width="1440" height="660" class="progressive-image blur">
+    </picture>
 
     <div class="hero-content">
         <div class="container">
@@ -86,6 +111,7 @@
 <section class="country-bar hidden">
 </section>
 
+<!-- Best Sellers 섹션 이미지 문제 해결 -->
 <section class="best-sellers" id="best-sellers-section">
     <h1>Best Sellers</h1>
     <hr>
@@ -93,7 +119,9 @@
         <div class="container">
             <div class="product new">
                 <div class="product-picture">
-                    <img src="images/vr1.jpg" alt="product: Penom Case" loading="lazy" width="250" height="250">
+                    <!-- 회색 배경 없이 이미지 직접 로드 -->
+                    <img src="images/vr1.webp" alt="product: Apple Headset"
+                         width="250" height="250">
                 </div>
                 <div class="product-info">
                     <h5 class="categories">Headsets, Apple</h5>
@@ -101,13 +129,15 @@
                     <h3 class="price">
                         <span>US$ 450.00</span>
                     </h3>
-                    <button>Add to bag</button>
+                    <button>ADD TO BAG</button>
                 </div>
             </div>
 
             <div class="product new">
                 <div class="product-picture">
-                    <img src="images/vr2.jpg" alt="product: Noise Cancelling Headphone" loading="lazy" width="250" height="250">
+                    <!-- 회색 배경 없이 이미지 직접 로드 -->
+                    <img src="images/vr2.webp" alt="product: Playstation Headset"
+                         width="250" height="250">
                 </div>
                 <div class="product-info">
                     <h5 class="categories">Headsets, PS</h5>
@@ -115,13 +145,15 @@
                     <h3 class="price">
                         <span>US$ 399.99</span>
                     </h3>
-                    <button>Add to bag</button>
+                    <button>ADD TO BAG</button>
                 </div>
             </div>
 
             <div class="product">
                 <div class="product-picture">
-                    <img src="images/vr3.jpg" alt="product: Canon Digital SLR EOS Rebel T6" loading="lazy" width="250" height="250">
+                    <!-- 회색 배경 없이 이미지 직접 로드 -->
+                    <img src="images/vr3.webp" alt="product: Oculus Headset"
+                         width="250" height="250">
                 </div>
                 <div class="product-info">
                     <h5 class="categories">Headsets, Oculus</h5>
@@ -130,7 +162,7 @@
                         <span class="discounted-price">US$ 349.99</span>
                         <span class="original-price">US$ 419.99</span>
                     </h3>
-                    <button>Add to bag</button>
+                    <button>ADD TO BAG</button>
                 </div>
             </div>
         </div>
@@ -202,6 +234,44 @@
 </footer>
 
 <a href="#" id="open_preferences_center">Update cookies preferences</a>
+
+<!-- 프로그레시브 이미지 로딩 스크립트 -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 프로그레시브 이미지 로딩 적용
+    const progressiveImages = document.querySelectorAll('.progressive-image');
+
+    const imgObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.dataset.src;
+
+          if (src) {
+            // 고해상도 이미지 로드
+            const highResImage = new Image();
+            highResImage.onload = () => {
+              img.src = src;
+              img.classList.remove('blur');
+              img.classList.add('loaded');
+            };
+            highResImage.src = src;
+
+            // 관찰 중단
+            observer.unobserve(img);
+          }
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.1
+    });
+
+    progressiveImages.forEach(img => {
+      imgObserver.observe(img);
+    });
+  });
+</script>
 
 <!-- 모듈 타입으로 스크립트 로드 -->
 <script type="module" src="./js/main.js"></script>
