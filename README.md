@@ -17,6 +17,8 @@
 - https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/b2xxoolhgq?form_factor=mobile
 - https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/b2xxoolhgq?form_factor=desktop
 
+### section.country-bar.hidden 불필요한 태그 삭제
+
 ## 성능 개선 보고서
 
 ### 1. 개선 이유
