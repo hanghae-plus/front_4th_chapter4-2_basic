@@ -38,9 +38,7 @@ function displayProducts(products) {
 
         const price = document.createElement('h3');
         price.classList.add('price');
-        const priceSpan = document.createElement('span');
-        priceSpan.textContent = `US$ ${product.price}`;
-        price.appendChild(priceSpan);
+        price.textContent = `US$ ${product.price}`;
 
         const button = document.createElement('button');
         button.textContent = 'Add to bag';

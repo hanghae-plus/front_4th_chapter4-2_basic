@@ -41,6 +41,7 @@
      - 전체적인 성능은 많이 향상되었지만 TBT가 오렌지 레벨 직전 수치를 보여 우려됨
 
 3. lazy loading (성능 93->94)
+
    - https://pagespeed.web.dev/analysis/https-d3evlhnos2z3s3-cloudfront-net/n7b8o0mo97?form_factor=desktop
    - 이유 :
      - First Paint & LCP 최적화
@@ -53,6 +54,17 @@
    - 기타
      - TBT가 오렌지 레벨로 넘어가는 모습을 보였다.
      - 모바일 환경에서 데이터 사용량 절약 효과가 높은 개선안인데 데스크탑 기준으로 측정해서 유의미한 차이가 느껴지지 않는 걸 수도 있다는 생각을 했다.
+
+4. 불필요한 dom제거
+
+   - https://pagespeed.web.dev/analysis/https-d3evlhnos2z3s3-cloudfront-net/71gbutstew?form_factor=desktop
+   - 이유 :
+     - TBT 점수 향상
+   - 개선 방법 :
+     - 불필요하게 사용된 span을 제거하라는 권고를 따름
+   - 개선 후 향상 지표
+     - 성능 : 94 -> 97
+     - TBT : 160-> 110
 
 # 질문
 
