@@ -81,9 +81,30 @@
     </header>
 
     <section class="hero">
-      <img class="desktop" src="images/Hero_Desktop.jpg" />
-      <img class="mobile" src="images/Hero_Mobile.jpg" />
-      <img class="tablet" src="images/Hero_Tablet.jpg" />
+      <picture>
+        <source srcset="images/Hero_Desktop.webp" />
+        <img
+          class="desktop"
+          src="images/Hero_Desktop.jpg"
+          alt="desktop hero image"
+        />
+      </picture>
+      <picture>
+        <source srcset="images/Hero_Tablet.webp" />
+        <img
+          class="tablet"
+          src="images/Hero_Tablet.jpg"
+          alt="desktop hero image"
+        />
+      </picture>
+      <picture>
+        <source srcset="images/Hero_Mobile.webp" />
+        <img
+          class="mobile"
+          src="images/Hero_Mobile.jpg"
+          alt="desktop hero image"
+        />
+      </picture>
 
       <div class="hero-content">
         <div class="container">
