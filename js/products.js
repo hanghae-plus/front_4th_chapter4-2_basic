@@ -65,11 +65,20 @@ function displayProducts(products) {
 }
 
 
+window.onload = () => {
+    const allProducts = document.querySelector('#all-products');
 
-loadProducts();
+    window.onscroll = () => {
+        let position = allProducts.getBoundingClientRect();
+        if (position.bottom <= window.innerHeight) {
+            loadProducts();
 
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-    const temp = Math.sqrt(i) * Math.sqrt(i);
+            // Simulate heavy operation. It could be a complex price calculation.
+            for (let i = 0; i < 10000000; i++) {
+                const temp = Math.sqrt(i) * Math.sqrt(i);
+            }
+        }
+    }
+
+
 }
-
