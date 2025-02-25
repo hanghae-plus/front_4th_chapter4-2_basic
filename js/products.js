@@ -1,4 +1,4 @@
-// products.js - 모듈로 변환
+// js/products.js - 모듈로 변환
 export async function loadProducts() {
     try {
         const response = await fetch("https://fakestoreapi.com/products");
@@ -102,7 +102,7 @@ function setupButtonInteraction(button) {
 // 무거운 계산 작업을 웹 워커로 이동
 function initializeHeavyCalculation() {
     // 웹 워커 파일 분리 (worker.js로)
-    const worker = new Worker('/js/worker.js');
+    const worker = new Worker('../worker.js');
     
     worker.onmessage = function(e) {
         console.log('Heavy calculation result:', e.data);

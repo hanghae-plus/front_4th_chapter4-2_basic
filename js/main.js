@@ -1,4 +1,4 @@
-// main.js - 필수적인 초기 기능만 포함
+// js/main.js - 필수적인 초기 기능만 포함
 function showTopBar(){
     let country = "France";
     let vat = 20;

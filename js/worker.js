@@ -1,4 +1,4 @@
-// worker.js - 무거운 계산 작업을 메인 스레드에서 분리
+// js/worker.js - 무거운 계산 작업을 메인 스레드에서 분리
 self.onmessage = function(e) {
   if (e.data === 'start') {
     const result = performHeavyCalculation();
