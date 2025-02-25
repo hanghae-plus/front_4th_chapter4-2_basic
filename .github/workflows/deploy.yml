@@ -31,7 +31,8 @@ jobs:
           aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
-            --exclude ".gitignore"
+            --exclude ".gitignore" \
+            --exclude "README.md"
           
 
       - name: Invalidate CloudFront cache
