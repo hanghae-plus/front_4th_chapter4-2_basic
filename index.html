@@ -6,21 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Tech Shop</title>
 
-    <!-- 메타 태그 및 프리로드 추가 -->
+    <!-- 메타 태그 -->
     <meta name="description" content="VR Headsets - Discover our line of premium VR headsets">
+
+    <!-- 서버 연결 최적화 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- CSS 파일 프리로드 -->
-    <link rel="preload" href="/css/styles.css" as="style">
     <link rel="preconnect" href="https://fakestoreapi.com">
 
-    <!-- 중요한 이미지 프리로드 (WebP 포맷으로 교체) -->
+    <!-- 중요한 리소스 프리로드 -->
     <link rel="preload" href="images/Hero_Desktop.webp" as="image" media="(min-width: 961px)" fetchpriority="high">
     <link rel="preload" href="images/Hero_Tablet.webp" as="image" media="(min-width: 577px) and (max-width: 960px)" fetchpriority="high">
     <link rel="preload" href="images/Hero_Mobile.webp" as="image" media="(max-width: 576px)" fetchpriority="high">
 
-    <!-- 폰트 스타일시트 로드 -->
+    <!-- 폰트와 스타일시트 -->
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
 
@@ -58,74 +57,6 @@
         }
       });
     </script>
-
-    <!-- 프로그레시브 이미지 로딩을 위한 스타일 -->
-    <style>
-        .progressive-image {
-            width: 100%;
-            height: auto;
-            transition: filter 0.3s ease-out;
-        }
-        .progressive-image.blur {
-            filter: blur(10px);
-        }
-        .progressive-image.loaded {
-            filter: blur(0);
-        }
-
-        /* 이미지 플레이스홀더 스타일 */
-        .image-placeholder {
-            background-color: #f0f0f0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .image-placeholder::before {
-            content: "";
-            display: block;
-            position: absolute;
-            left: -150px;
-            top: 0;
-            height: 100%;
-            width: 150px;
-            background: linear-gradient(to right, transparent 0%, #e0e0e0 50%, transparent 100%);
-            animation: loading 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-        }
-
-        @keyframes loading {
-            from {
-                left: -150px;
-            }
-            to {
-                left: 100%;
-            }
-        }
-
-        /* 제품 청크 플레이스홀더 스타일 */
-        .product-chunk-placeholder {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-            min-height: 300px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-chunk-placeholder::before {
-            content: "";
-            display: block;
-            position: absolute;
-            left: -150px;
-            top: 0;
-            height: 100%;
-            width: 150px;
-            background: linear-gradient(to right, transparent 0%, #e0e0e0 50%, transparent 100%);
-            animation: loading 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-        }
-    </style>
 </head>
 
 <body>
@@ -173,12 +104,14 @@
         <source srcset="images/Hero_Mobile.webp" media="(max-width: 576px)" type="image/webp">
         <source srcset="images/Hero_Mobile.jpg" media="(max-width: 576px)" type="image/jpeg">
 
-        <!-- 폴백 이미지 - fetchpriority="high" 추가 -->
-        <img class="desktop" src="images/Hero_Desktop_Placeholder.jpg"
+        <!-- 폴백 이미지 - fetchpriority="high" 및 데이터 속성 추가 -->
+        <img class="desktop hero-image"
+             src="images/Hero_Desktop_Placeholder.jpg"
              data-src="images/Hero_Desktop.jpg"
              alt="VR Headsets" width="1440" height="660"
-             class="progressive-image blur"
-             fetchpriority="high">
+             class="progressive-image"
+             fetchpriority="high"
+             decoding="async">
     </picture>
 
     <div class="hero-content">
@@ -197,7 +130,7 @@
     <!-- 여기에 국가 정보가 동적으로 추가됩니다 -->
 </section>
 
-<!-- Best Sellers 섹션 - 이미지 최적화 적용 -->
+<!-- Best Sellers 섹션 - 이미지 지연 로딩 적용 -->
 <section class="best-sellers" id="best-sellers-section">
     <h1>Best Sellers</h1>
     <hr>
@@ -205,11 +138,12 @@
         <div class="container">
             <div class="product new">
                 <div class="product-picture">
-                    <!-- 이미지 지연 로딩 적용 -->
+                    <!-- 데이터 속성으로 지연 로딩 설정 -->
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' fill='%23f0f0f0'%3E%3Crect width='250' height='250' /%3E%3C/svg%3E"
                          data-src="images/vr1.webp"
                          alt="product: Apple Headset"
                          width="250" height="250"
+                         loading="lazy"
                          class="progressive-image blur">
                 </div>
                 <div class="product-info">
@@ -224,11 +158,11 @@
 
             <div class="product new">
                 <div class="product-picture">
-                    <!-- 이미지 지연 로딩 적용 -->
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' fill='%23f0f0f0'%3E%3Crect width='250' height='250' /%3E%3C/svg%3E"
                          data-src="images/vr2.webp"
                          alt="product: Playstation Headset"
                          width="250" height="250"
+                         loading="lazy"
                          class="progressive-image blur">
                 </div>
                 <div class="product-info">
@@ -243,11 +177,11 @@
 
             <div class="product">
                 <div class="product-picture">
-                    <!-- 이미지 지연 로딩 적용 -->
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' fill='%23f0f0f0'%3E%3Crect width='250' height='250' /%3E%3C/svg%3E"
                          data-src="images/vr3.webp"
                          alt="product: Oculus Headset"
                          width="250" height="250"
+                         loading="lazy"
                          class="progressive-image blur">
                 </div>
                 <div class="product-info">
@@ -270,7 +204,6 @@
     <hr>
     <div class="product-slider" id="all-products" data-lazy-action="load-products">
         <div class="container">
-            <!-- 동적으로 생성될 제품 목록 -->
             <!-- 초기 로딩 상태 표시 -->
             <div class="product-chunk-placeholder">
                 <!-- 로딩 중 상태 표시 -->
@@ -337,6 +270,5 @@
 
 <!-- 모듈 타입으로 스크립트 로드 - defer 속성 추가 -->
 <script type="module" src="./js/main.js" defer></script>
-<!-- products.js는 main.js에서 동적으로 로드됨 -->
 </body>
 </html>
