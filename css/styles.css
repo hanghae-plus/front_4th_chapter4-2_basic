@@ -1,4 +1,4 @@
-/*styles.css - 인터섹션 옵저버 및 성능 최적화 적용*/
+/*styles.css - 인터섹션 옵저버 및 성능 개선 적용*/
 
 /* 기본 스타일 */
 body {
@@ -29,7 +29,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1;
-    will-change: transform; /* 성능 최적화: 합성 레이어 생성 */
+    /* will-change: transform 제거 */
 }
 
 header .container {
@@ -164,8 +164,8 @@ header nav ul li:last-of-type a {
 section.hero {
     position: relative;
     overflow: hidden;
-    content-visibility: auto; /* 성능 최적화: 뷰포트 외부 콘텐츠 렌더링 지연 */
-    contain-intrinsic-size: 1px 600px; /* 콘텐츠가 로드되기 전 대략적인 크기 지정 */
+    /* content-visibility: auto 제거 */
+    /* contain-intrinsic-size: 1px 600px 제거 */
 }
 
 section.hero img {
@@ -257,8 +257,8 @@ section.country-bar.hidden {
 /* 베스트셀러 섹션 스타일 */
 section.best-sellers {
     padding-top: 80px;
-    content-visibility: auto; /* 성능 최적화: 뷰포트 외부 콘텐츠 렌더링 지연 */
-    contain-intrinsic-size: 1px 800px; /* 콘텐츠가 로드되기 전 대략적인 크기 지정 */
+    /* content-visibility: auto 제거 */
+    /* contain-intrinsic-size: 1px 800px 제거 */
 }
 
 section.best-sellers h1 {
@@ -417,8 +417,8 @@ section.newsletter {
     text-align: center;
     padding: 72px 0;
     margin: 80px auto;
-    content-visibility: auto; /* 성능 최적화: 뷰포트 외부 콘텐츠 렌더링 지연 */
-    contain-intrinsic-size: 1px 300px; /* 콘텐츠가 로드되기 전 대략적인 크기 지정 */
+    /* content-visibility: auto 제거 */
+    /* contain-intrinsic-size: 1px 300px 제거 */
 }
 
 section.newsletter h3 {
@@ -485,8 +485,8 @@ section.newsletter form button:hover {
 
 /* 푸터 스타일 */
 footer {
-    content-visibility: auto; /* 성능 최적화: 뷰포트 외부 콘텐츠 렌더링 지연 */
-    contain-intrinsic-size: 1px 400px; /* 콘텐츠가 로드되기 전 대략적인 크기 지정 */
+    /* content-visibility: auto 제거 */
+    /* contain-intrinsic-size: 1px 400px 제거 */
 }
 
 footer .bottom-nav {
@@ -593,12 +593,7 @@ section.best-sellers .product-slider .product .product-picture > div,
 }
 
 /* 성능 최적화를 위한 추가 CSS */
-/* will-change 속성으로 성능 최적화 */
-.hero-content button,
-section.best-sellers .product-slider .product,
-section.newsletter form button {
-    will-change: transform, background-color;
-}
+/* will-change 속성 제거 */
 
 /* 미디어 쿼리 - 태블릿 */
 @media screen and (max-width: 960px) {
