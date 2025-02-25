@@ -1,4 +1,4 @@
-<!--index.html - 인터섹션 옵저버를 활용한 성능 최적화-->
+<!--index.html - LCP 및 성능 최적화-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,67 +9,101 @@
     <!-- 메타 태그 -->
     <meta name="description" content="VR Headsets - Discover our line of premium VR headsets">
 
+    <!-- 중요 CSS만 인라인으로 포함 -->
+    <style>
+        /* 중요 렌더링을 위한 최소 CSS */
+        body {margin: 0; font-family: sans-serif; padding-top: 80px;}
+        .container {width: 1440px; max-width: 90%; margin: auto; padding: 0 16px;}
+        header {background-color: #FFF; box-shadow: 0 1px 6px 0 rgba(0,0,0,0.15); height: 80px; position: fixed; top: 0; left: 0; width: 100%; z-index: 1;}
+        header .container {display: flex; align-items: center; justify-content: space-between; height: 100%;}
+        section.hero {position: relative; overflow: hidden;}
+        section.hero img {width: 100%; height: auto; filter: brightness(50%);}
+        section.country-bar.hidden {display: none;}
+        .progressive-image {opacity: 1; transition: opacity 0.3s ease;}
+    </style>
+
     <!-- 서버 연결 최적화 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fakestoreapi.com">
 
-    <!-- 중요한 리소스 프리로드 -->
-    <link rel="preload" href="images/Hero_Desktop.webp" as="image" media="(min-width: 961px)" fetchpriority="high">
-    <link rel="preload" href="images/Hero_Tablet.webp" as="image" media="(min-width: 577px) and (max-width: 960px)" fetchpriority="high">
-    <link rel="preload" href="images/Hero_Mobile.webp" as="image" media="(max-width: 576px)" fetchpriority="high">
+    <!-- 히어로 이미지 최적화된 로딩 -->
+    <link rel="preload" as="image" href="images/Hero_Desktop.webp" media="(min-width: 961px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/Hero_Tablet.webp" media="(min-width: 577px) and (max-width: 960px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/Hero_Mobile.webp" media="(max-width: 576px)" fetchpriority="high">
 
-    <!-- 폰트와 스타일시트 -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
+    <!-- 비동기 폰트 로딩 -->
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet">
+    </noscript>
 
-    <!-- Google Tag Manager - 스크립트 지연 로드 -->
+    <!-- 비동기 CSS 로딩 -->
+    <link rel="stylesheet" href="/css/styles.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/styles.css">
+    </noscript>
+
+    <!-- 지연 로드 스크립트 -->
+    <script type="module" src="./js/main.js" defer></script>
+
+    <!-- Preload 중요 스크립트 -->
+    <link rel="modulepreload" href="./js/products.js">
+
+    <!-- 쿠키 동의 스크립트 - 지연 로드 -->
     <script>
-      window.addEventListener('load', function() {
-        // 지연 로드를 위한 requestIdleCallback 사용
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(function() {
-            loadGTM();
-          }, { timeout: 5000 });
-        } else {
-          // 폴백: setTimeout 사용
-          setTimeout(function() {
-            loadGTM();
-          }, 2000);
-        }
+      // 스크롤 후 쿠키 스크립트 로드
+      let cookieLoaded = false;
+      function loadCookieConsent() {
+        if (cookieLoaded) return;
+        cookieLoaded = true;
 
-        function loadGTM() {
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-PKK35GL5');
-        }
+        const script = document.createElement('script');
+        script.src = "//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js";
+        script.charset = "UTF-8";
+        script.onload = function() {
+          if (typeof cookieconsent !== 'undefined') {
+            cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
+          }
+        };
+        document.head.appendChild(script);
+      }
+
+      // 지연 로드
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          loadCookieConsent();
+        }, 3000);
       });
     </script>
 
-    <!-- Cookie Consent - defer 속성 추가 -->
-    <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8" defer></script>
-    <script type="text/javascript" charset="UTF-8">
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof cookieconsent !== 'undefined') {
-          cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
-        }
+    <!-- Google Tag Manager - 사용자 상호작용 후 로드 -->
+    <script>
+      // 사용자 상호작용 후 GTM 로드
+      let gtmLoaded = false;
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PKK35GL5');
+      }
+
+      // 사용자 상호작용시 로드
+      ['click', 'scroll', 'keydown'].forEach(event => {
+        window.addEventListener(event, function() {
+          loadGTM();
+        }, {once: true});
       });
     </script>
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) - 비동기 로드 -->
+<!-- GTM noscript 지연 로드 -->
 <noscript id="gtm-noscript"></noscript>
-<script>
-  // noscript iframe을 지연 로드
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      document.getElementById('gtm-noscript').innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKK35GL5" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
-    }, 2000);
-  });
-</script>
 
 <header>
     <div class="container">
@@ -86,32 +120,33 @@
                 <li><a href="about.html">About us</a></li>
                 <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
                 <li><a href="index.html#newsletter-section">Newsletter</a></li>
-                <li class="menu-icon"><img src="images/menu_icon.webp" alt="Menu icon" width="24" height="24"></li>
+                <li class="menu-icon"><img src="images/menu_icon.webp" alt="Menu icon" width="24" height="24" loading="lazy"></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <section class="hero">
-    <!-- 반응형 이미지 및 WebP 포맷 지원 추가 -->
+    <!-- 최적화된 히어로 이미지 로딩 -->
     <picture>
+        <!-- 데스크톱 -->
         <source srcset="images/Hero_Desktop.webp" media="(min-width: 961px)" type="image/webp">
         <source srcset="images/Hero_Desktop.jpg" media="(min-width: 961px)" type="image/jpeg">
 
+        <!-- 태블릿 -->
         <source srcset="images/Hero_Tablet.webp" media="(min-width: 577px) and (max-width: 960px)" type="image/webp">
         <source srcset="images/Hero_Tablet.jpg" media="(min-width: 577px) and (max-width: 960px)" type="image/jpeg">
 
+        <!-- 모바일 -->
         <source srcset="images/Hero_Mobile.webp" media="(max-width: 576px)" type="image/webp">
         <source srcset="images/Hero_Mobile.jpg" media="(max-width: 576px)" type="image/jpeg">
 
-        <!-- 폴백 이미지 - fetchpriority="high" 및 데이터 속성 추가 -->
+        <!-- 메인 이미지 - width/height 속성으로 레이아웃 시프트 방지 -->
         <img class="desktop hero-image"
-             src="images/Hero_Desktop_Placeholder.jpg"
-             data-src="images/Hero_Desktop.jpg"
-             alt="VR Headsets" width="1440" height="660"
-             class="progressive-image"
-             fetchpriority="high"
-             decoding="async">
+             src="images/Hero_Desktop.webp"
+             alt="VR Headsets"
+             width="1440" height="660"
+             fetchpriority="high">
     </picture>
 
     <div class="hero-content">
@@ -127,10 +162,10 @@
 </section>
 
 <section class="country-bar hidden">
-    <!-- 여기에 국가 정보가 동적으로 추가됩니다 -->
+    <!-- 동적으로 추가되는 국가 정보 -->
 </section>
 
-<!-- Best Sellers 섹션 - 이미지 지연 로딩 적용 -->
+<!-- Best Sellers 섹션 -->
 <section class="best-sellers" id="best-sellers-section">
     <h1>Best Sellers</h1>
     <hr>
@@ -138,7 +173,7 @@
         <div class="container">
             <div class="product new">
                 <div class="product-picture">
-                    <!-- 데이터 속성으로 지연 로딩 설정 -->
+                    <!-- 최적화된 이미지 로딩 -->
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250' fill='%23f0f0f0'%3E%3Crect width='250' height='250' /%3E%3C/svg%3E"
                          data-src="images/vr1.webp"
                          alt="product: Apple Headset"
@@ -198,15 +233,15 @@
     </div>
 </section>
 
-<!-- All Products 섹션 - 인터섹션 옵저버로 지연 로딩 설정 -->
+<!-- All Products 섹션 -->
 <section class="best-sellers">
     <h1>All Products</h1>
     <hr>
     <div class="product-slider" id="all-products" data-lazy-action="load-products">
         <div class="container">
-            <!-- 초기 로딩 상태 표시 -->
+            <!-- 로딩 플레이스홀더 -->
             <div class="product-chunk-placeholder">
-                <!-- 로딩 중 상태 표시 -->
+                <!-- 로딩 중 표시 -->
             </div>
         </div>
     </div>
@@ -268,7 +303,34 @@
 
 <a href="#" id="open_preferences_center">Update cookies preferences</a>
 
-<!-- 모듈 타입으로 스크립트 로드 - defer 속성 추가 -->
-<script type="module" src="./js/main.js" defer></script>
+<!-- 이미지 로딩 스크립트 -->
+<script>
+  // 프로그레시브 이미지 로딩
+  document.addEventListener('DOMContentLoaded', function() {
+    // 이미지 관찰자 초기화
+    const imgObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.dataset.src;
+
+          if (src) {
+            img.src = src;
+            img.classList.remove('blur');
+            observer.unobserve(img);
+          }
+        }
+      });
+    }, {
+      rootMargin: '0px 0px 200px 0px',
+      threshold: 0.01
+    });
+
+    // 모든 지연 로딩 이미지에 관찰자 적용
+    document.querySelectorAll('.progressive-image').forEach(function(img) {
+      imgObserver.observe(img);
+    });
+  });
+</script>
 </body>
 </html>
