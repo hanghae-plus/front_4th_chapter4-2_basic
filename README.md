@@ -2,11 +2,20 @@
 
 - url: https://d267jtlyf6x8wq.cloudfront.net/
 
+### 최적화 전
+
 - https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/13iyto1mpz?form_factor=mobile
 - https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/13iyto1mpz?form_factor=desktop
 
+### jpg -> webp, img -> picture
+
 - https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/pv79i22kmp?form_factor=mobile
 - https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/pv79i22kmp?form_factor=desktop
+
+### source 태그에 Width와 height 적용
+
+- https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/b2xxoolhgq?form_factor=mobile
+- https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/b2xxoolhgq?form_factor=desktop
 
 ## 성능 개선 보고서
 
