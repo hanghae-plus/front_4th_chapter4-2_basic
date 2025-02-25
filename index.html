@@ -88,30 +88,34 @@
 
     <section class="hero">
       <picture>
-        <source srcset="images/Hero_Desktop.webp" />
-        <img
-          class="desktop"
-          src="images/Hero_Desktop.jpg"
-          alt="desktop hero image"
+        <!-- 모바일: 최대 576px -->
+        <source
+          media="(max-width: 576px)"
+          srcset="images/Hero_Mobile.webp"
+          type="image/webp"
         />
-      </picture>
-      <picture>
-        <source srcset="images/Hero_Tablet.webp" />
-        <img
-          class="tablet"
-          src="images/Hero_Tablet.jpg"
-          alt="desktop hero image"
+        <source
+          media="(max-width: 576px)"
+          srcset="images/Hero_Mobile.jpg"
+          type="image/jpeg"
         />
-      </picture>
-      <picture>
-        <source srcset="images/Hero_Mobile.webp" />
-        <img
-          class="mobile"
-          src="images/Hero_Mobile.jpg"
-          alt="desktop hero image"
-        />
-      </picture>
 
+        <!-- 태블릿: 최대 960px -->
+        <source
+          media="(max-width: 960px)"
+          srcset="images/Hero_Tablet.webp"
+          type="image/webp"
+        />
+        <source
+          media="(max-width: 960px)"
+          srcset="images/Hero_Tablet.jpg"
+          type="image/jpeg"
+        />
+
+        <!-- 데스크탑: 기본으로 webp 우선 -->
+        <source srcset="images/Hero_Desktop.webp" type="image/webp" />
+        <img src="images/Hero_Desktop.jpg" alt="Hero image" />
+      </picture>
       <div class="hero-content">
         <div class="container">
           <h1>Discover our line of VR Headsets</h1>
