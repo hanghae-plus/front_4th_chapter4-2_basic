@@ -32,15 +32,15 @@
    - 개선 방법 :
      - 이미지의 webp 변환 방법들 중, 한번에 변경 가능한 CLI방식을 선택
      - cwebp으로 images폴더 내의 jpg를 일괄 변경 `for %i in (*.jpg) do cwebp -q 80 "%i" -o "%~ni.webp"`
-     - index.html에서 ".jpg" -> ".webp"로 일괄 변경
+     - index.html에서 ".jpg" → ".webp"로 일괄 변경
    - 개선 후 지표
-     - 성능 : 82 -> 93
-     - TBT : 100 -> 150 (성능 저하됨)
-     - LCP : 2.6 -> 1.3
+     - 성능 : 82 → 93
+     - TBT : 100 → 150 (성능 저하됨)
+     - LCP : 2.6 → 1.3
    - 기타
      - 전체적인 성능은 많이 향상되었지만 TBT가 오렌지 레벨 직전 수치를 보여 우려됨
 
-3. lazy loading (성능 93->94)
+3. lazy loading (성능 93→94)
 
    - https://pagespeed.web.dev/analysis/https-d3evlhnos2z3s3-cloudfront-net/n7b8o0mo97?form_factor=desktop
    - 이유 :
@@ -48,14 +48,14 @@
    - 개선 방법 :
      - 외부 API로 불러오는 이미지에 lazy 클래스명을 추가하고, js로 적용했다.
    - 개선 후 지표
-     - 성능 : 93 -> 94
-     - TBT : 150 -> 160 (성능 저하됨)
-     - LCP : 1.3 -> 1.2
+     - 성능 : 93 → 94
+     - TBT : 150 → 160 (성능 저하됨)
+     - LCP : 1.3 → 1.2
    - 기타
      - TBT가 오렌지 레벨로 넘어가는 모습을 보였다.
      - 모바일 환경에서 데이터 사용량 절약 효과가 높은 개선안인데 데스크탑 기준으로 측정해서 유의미한 차이가 느껴지지 않는 걸 수도 있다는 생각을 했다.
 
-4. 불필요한 dom제거
+4. 불필요한 dom제거 (성능 94 → 96)
 
    - https://pagespeed.web.dev/analysis/https-d3evlhnos2z3s3-cloudfront-net/71gbutstew?form_factor=desktop
    - 이유 :
@@ -63,8 +63,23 @@
    - 개선 방법 :
      - 불필요하게 사용된 span을 제거하라는 권고를 따름
    - 개선 후 향상 지표
-     - 성능 : 94 -> 97
-     - TBT : 160-> 110
+     - 성능 : 94 → 96
+     - TBT : 160 → 110
+
+5. alt추가, 색상대비 강조 (96 → 98)
+   - https://pagespeed.web.dev/analysis/https-d3evlhnos2z3s3-cloudfront-net/if8qj14qqo?form_factor=desktop
+   - 이유 :
+     - 권장사항 점수를 올리기 위함
+   - 개선 방법 :
+     - 배너 이미지에 alt 태그 추가
+     - 대비가 낮은 버튼의 색상을 조절 (https://dequeuniversity.com/rules/axe/4.10/color-contrast)
+   - 개선 후 향상 지표
+     - 성능 : 96 → 98
+     - 접근성 : 82 → 91
+     - SEO(검색엔진 최적화) : 82 → 91
+   - 기타
+     - 청록색(#33c6dd)이 많이 사용되는데, 배경과의 대비가 크지 않아 권장사항 항목에서 마이너스 요소가 되었다.
+       #00a0b9로 변경하면 점수를 올릴 수 있지만, 실무라면 디자이너가 화낼 것 같다.
 
 # 질문
 
