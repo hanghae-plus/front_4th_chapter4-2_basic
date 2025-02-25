@@ -1,3 +1,5 @@
+import Worker from "./worker.js?worker";
+
 async function loadProducts() {
   const response = await fetch("https://fakestoreapi.com/products");
   const products = await response.json();
@@ -62,7 +64,6 @@ function displayProducts(products) {
 
 loadProducts();
 
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-  const temp = Math.sqrt(i) * Math.sqrt(i);
-}
+const worker = new Worker(Worker);
+
+worker.postMessage({ action: "compute", value: 10_000_000_000 });
