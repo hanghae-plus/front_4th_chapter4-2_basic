@@ -5,10 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Tech Shop</title>
-    <!-- <link
-      href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap"
-      rel="stylesheet"
-    /> -->
+
     <link rel="stylesheet" href="/css/styles.css" />
     <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
     <!-- Google Tag Manager -->
@@ -34,18 +31,19 @@
       charset="UTF-8"
     ></script>
     <script defer type="text/javascript" charset="UTF-8">
-      document.addEventListener('DOMContentLoaded', function () {
-        cookieconsent.run({
-          notice_banner_type: 'simple',
-          consent_type: 'express',
-          palette: 'light',
-          language: 'en',
-          page_load_consent_levels: ['strictly-necessary'],
-          notice_banner_reject_button_hide: false,
-          preferences_center_close_button_hide: false,
-          page_refresh_confirmation_buttons: false,
-          website_name: 'Performance Course',
-        });
+      window.addEventListener('load', function () {
+        if (typeof cookieconsent !== 'undefined') {
+          cookieconsent.run({
+            notice_banner_type: 'simple',
+            consent_type: 'express',
+            palette: 'light',
+            language: 'en',
+            page_load_consent_levels: ['strictly-necessary'],
+            website_name: 'Performance Course',
+          });
+        } else {
+          console.error('CookieConsent script failed to load.');
+        }
       });
     </script>
   </head>
@@ -72,17 +70,13 @@
             <span>Headsets</span>
           </a>
         </section>
-        <nav>
+        <nav aria-label="Main navigation">
           <ul>
             <li><a href="about.html">About us</a></li>
             <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
             <li><a href="index.html#newsletter-section">Newsletter</a></li>
             <li class="menu-icon">
-              <picture>
-                <source type="image/webp" srcset="images/menu_icon.webp" />
-                <source type="image/jpg" srcset="images/menu_icon.png" />
-                <img src="images/menu_icon.png" alt="" />
-              </picture>
+              <img src="images/menu_icon.webp" alt="menu icon" />
             </li>
           </ul>
         </nav>
@@ -121,7 +115,7 @@
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium.
           </p>
-          <button>View Headsets</button>
+          <button aria-label="View Headsets">View Headsets</button>
         </div>
       </div>
     </section>
@@ -137,12 +131,7 @@
             <div class="product-picture">
               <picture>
                 <source type="image/webp" srcset="images/vr1.webp" />
-                <source type="image/jpg" srcset="images/vr1.jpg" />
-                <img
-                  src="images/vr1.jpg"
-                  alt="product: Apple Headset"
-                  loading="lazy"
-                />
+                <img src="images/vr1.webp" alt="product: Apple Headset" />
               </picture>
             </div>
             <div class="product-info">
@@ -151,7 +140,7 @@
               <h3 class="price">
                 <span>US$ 450.00</span>
               </h3>
-              <button>Add to bag</button>
+              <button aria-label="Add to bag">Add to bag</button>
             </div>
           </div>
 
@@ -159,12 +148,7 @@
             <div class="product-picture">
               <picture>
                 <source type="image/webp" srcset="images/vr2.webp" />
-                <source type="image/jpg" srcset="images/vr2.jpg" />
-                <img
-                  src="images/vr2.jpg"
-                  alt="product: Playstation Headset"
-                  loading="lazy"
-                />
+                <img src="images/vr2.webp" alt="product: Playstation Headset" />
               </picture>
             </div>
             <div class="product-info">
@@ -173,7 +157,7 @@
               <h3 class="price">
                 <span>US$ 399.99</span>
               </h3>
-              <button>Add to bag</button>
+              <button aria-label="Add to bag">Add to bag</button>
             </div>
           </div>
 
@@ -181,12 +165,7 @@
             <div class="product-picture">
               <picture>
                 <source type="image/webp" srcset="images/vr3.webp" />
-                <source type="image/jpg" srcset="images/vr3.jpg" />
-                <img
-                  src="images/vr3.jpg"
-                  alt="product: Oculus Headset"
-                  loading="lazy"
-                />
+                <img src="images/vr3.webp" alt="product: Oculus Headset" />
               </picture>
             </div>
             <div class="product-info">
@@ -196,7 +175,7 @@
                 <span class="discounted-price">US$ 349.99</span>
                 <span class="original-price">US$ 419.99</span>
               </h3>
-              <button>Add to bag</button>
+              <button aria-label="Add to bag">Add to bag</button>
             </div>
           </div>
         </div>
@@ -216,7 +195,7 @@
       <p>Subscribe now and don't miss a single deal!</p>
       <form>
         <input type="email" name="email" placeholder="Your email..." />
-        <button type="submit">Subscribe</button>
+        <button type="submit" aria-label="Subscribe">Subscribe</button>
       </form>
     </section>
 
