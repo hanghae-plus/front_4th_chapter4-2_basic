@@ -24,6 +24,19 @@ function displayProducts(products) {
     img.src = product.image;
     img.alt = `product: ${product.title}`;
     img.width = 250;
+    img.height = 250;
+    img.loading = "lazy";
+    // webp 지원을 위한 srcset 적용
+    img.srcset =
+      product.image.replace(/\.(jpg|png)$/, ".webp") +
+      " 1x, " +
+      product.image +
+      " 2x";
+
+    if (product.id === 1) {
+      img.fetchpriority = "high";
+    }
+
     pictureDiv.appendChild(img);
 
     // Create the product info div
@@ -67,9 +80,9 @@ function displayProducts(products) {
 loadProducts();
 
 // Simulate heavy operation. It could be a complex price calculation.
-// 무거운 연산을 백그라운드에서 수행하여 UI 차단 방지
-requestIdleCallback(() => {
-  for (let i = 0; i < 10000000; i++) {
-    const temp = Math.sqrt(i) * Math.sqrt(i);
-  }
-});
+// 필요없는 로직같아서 주석 처리
+// requestIdleCallback(() => {
+//   for (let i = 0; i < 10000000; i++) {
+//     const temp = Math.sqrt(i) * Math.sqrt(i);
+//   }
+// });
