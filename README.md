@@ -20,6 +20,14 @@
 
 ## 2. 프로젝트 배포
 
+![vercel 배포과정](https://github.com/user-attachments/assets/0b4393de-ba31-49c5-95a1-93f1acb6935d)
+
+1. 로컬 환경에서 코드를 Github 저장소에 푸시합니다.
+2. main 브랜치에 푸시되면, Github은 Vercel에 웹훅 알림을 보냅니다.
+3. Vercel은 웹훅 알림을 감지해 main 브랜치에 최신 코드를 가져와 자동으로 빌드 및 배포 프로세스를 시작합니다.
+4. Vercel은 해당 프로젝트의 설정에 맞는 의존성을 설치하고, 정적 파일을 생성합니다.
+5. 빌드된 파일을 Vercel CDN 및 Edge Network에 배포하고, 프로젝트 배포 URL을 생성합니다.
+
 ## 3. 초기 성능 측정
 
 ## 4. 성능 개선 방법 및 과정
