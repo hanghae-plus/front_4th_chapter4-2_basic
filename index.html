@@ -63,10 +63,27 @@
 
         <section class="hero">
 
-            <img class="desktop" src="images/Hero_Desktop.webp" alt="데스크탑용 VR 헤드셋 이미지">
-            <img class="mobile" src="images/Hero_Mobile.webp" alt="모바일용 VR 헤드셋 이미지">
-            <img class="tablet" src="images/Hero_Tablet.webp" alt="태블릿용 VR 헤드셋 이미지">
-
+            <picture>
+                <!-- 모바일 -->
+                <source
+                    width="767"
+                    height="767"
+                    media="(max-width: 767px)"
+                    srcset="images/Hero_Mobile.webp">
+                <!-- 태블릿 -->
+                <source
+                    width="1023"
+                    height="1023"
+                    media="(max-width: 1023px)"
+                    srcset="images/Hero_Tablet.webp">
+                <!-- 데스크탑 -->
+                <img
+                    width="2160"
+                    height="1005"
+                    src="images/Hero_Desktop.webp"
+                    alt="VR 헤드셋 이미지"
+                    class="hero-image">
+            </picture>
 
             <div class="hero-content">
                 <div class="container">
