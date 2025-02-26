@@ -22,16 +22,18 @@ jobs:
       - name: Install dependencies
         run: |
           npm install -g @lhci/cli@0.14.x
-          npm install -g http-server
-
-      - name: Start local server
-        run: http-server . -p 8080 &
 
       - name: Run Lighthouse CI
         id: lighthouse
         continue-on-error: true
         run: |
-          URL="${{ github.event.inputs.url || 'http://localhost:8080' }}"
+          URL="${{ secrets.AWS_CLOUDFRONT_URL }}"
+          
+          if [ -z "$URL" ]; then
+            echo "❌ 오류: URL이 설정되지 않았습니다!"
+            exit 1
+          fi
+          
           lhci autorun --collect.url=$URL
 
       - name: Create GitHub Issue with Results
