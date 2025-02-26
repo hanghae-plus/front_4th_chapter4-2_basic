@@ -55,11 +55,42 @@
         </header>
         
         <section class="hero">
-
-            <img class="desktop" src="images/Hero_Desktop.jpg">
-            <img class="mobile" src="images/Hero_Mobile.jpg">
-            <img class="tablet" src="images/Hero_Tablet.jpg">
-
+            <picture>
+                <source srcset="images/Hero_Desktop.avif" type="image/avif" />
+                <source srcset="images/Hero_Desktop.webp" type="image/webp" />
+                <img
+                  class="desktop"
+                  src="images/Hero_Desktop.jpg"
+                  alt="Hero Image"
+                  width="1920"
+                  height="1080"
+                  fetchpriority="high"
+                />
+            </picture>
+            <picture>
+                <source srcset="images/Hero_Mobile.avif" type="image/avif" />
+                <source srcset="images/Hero_Mobile.webp" type="image/webp" />
+                <img
+                  class="mobile"
+                  src="images/Hero_Mobile.jpg"
+                  alt="Hero Image"
+                  width="600"
+                  height="400"
+                  fetchpriority="high"
+                />
+            </picture>
+            <picture>
+                <source srcset="images/Hero_Tablet.avif" type="image/avif" />
+                <source srcset="images/Hero_Tablet.webp" type="image/webp" />
+                <img
+                  class="tablet"
+                  src="images/Hero_Tablet.jpg"
+                  alt="Hero Image"
+                  width="1024"
+                  height="768"
+                  fetchpriority="high"
+                />
+            </picture>
            
             <div class="hero-content">
                 <div class="container">
