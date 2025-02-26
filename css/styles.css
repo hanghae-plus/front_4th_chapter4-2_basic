@@ -4,6 +4,7 @@
   font-family: "Heebo";
   font-style: normal;
   font-weight: 400;
+  font-display: optional;
   src: url("../fonts/heebo-v26-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* heebo-500 - latin */
@@ -12,6 +13,7 @@
   font-family: "Heebo";
   font-style: normal;
   font-weight: 500;
+  font-display: optional;
   src: url("../fonts/heebo-v26-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* heebo-700 - latin */
@@ -20,6 +22,7 @@
   font-family: "Heebo";
   font-style: normal;
   font-weight: 700;
+  font-display: optional;
   src: url("../fonts/heebo-v26-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -27,6 +30,7 @@ body {
   margin: 0;
   font-family: "Heebo";
   padding-top: 80px;
+  font-display: swap;
 }
 
 .container {
@@ -93,7 +97,7 @@ header nav ul li.menu-icon {
 header nav ul li.menu-icon img {
   vertical-align: middle;
   width: 24px;
-  height: auto;
+  height: 24px;
 }
 
 header nav ul li a {
