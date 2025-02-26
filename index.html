@@ -6,8 +6,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home - Tech Shop</title>
-        <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <noscript>
+            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&display=swap" rel="stylesheet">
+        </noscript>
+        <link rel="stylesheet" href="/css/styles.min.css" media="all">
         <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -19,9 +24,11 @@
         <!-- End Google Tag Manager -->
 
         <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-        <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+        <script async defer type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
         <script type="text/javascript" charset="UTF-8">
-            cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
+            window.addEventListener('load', function() {
+                cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
+            });
         </script>
               
     </head>
@@ -48,18 +55,49 @@
                         <li><a href="about.html">About us</a></li>
                         <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
                         <li><a href="index.html#newsletter-section">Newsletter</a></li>
-                        <li class="menu-icon"><img src="images/menu_icon.png" ></li>
+                        <li class="menu-icon"><img src="images/menu_icon.png" alt="Menu Icon" width="36" height="26" ></li>
                     </ul>
                 </nav>
             </div>
         </header>
         
         <section class="hero">
-
-            <img class="desktop" src="images/Hero_Desktop.jpg">
-            <img class="mobile" src="images/Hero_Mobile.jpg">
-            <img class="tablet" src="images/Hero_Tablet.jpg">
-
+            <picture>
+                <source srcset="images/Hero_Desktop.avif" type="image/avif" />
+                <source srcset="images/Hero_Desktop.webp" type="image/webp" />
+                <img
+                  class="desktop"
+                  src="images/Hero_Desktop.jpg"
+                  alt="Hero Image"
+                  width="1920"
+                  height="1080"
+                  fetchpriority="high"
+                />
+            </picture>
+            <picture>
+                <source srcset="images/Hero_Mobile.avif" type="image/avif" />
+                <source srcset="images/Hero_Mobile.webp" type="image/webp" />
+                <img
+                  class="mobile"
+                  src="images/Hero_Mobile.jpg"
+                  alt="Hero Image"
+                  width="600"
+                  height="400"
+                  fetchpriority="high"
+                />
+            </picture>
+            <picture>
+                <source srcset="images/Hero_Tablet.avif" type="image/avif" />
+                <source srcset="images/Hero_Tablet.webp" type="image/webp" />
+                <img
+                  class="tablet"
+                  src="images/Hero_Tablet.jpg"
+                  alt="Hero Image"
+                  width="1440"
+                  height="1155"
+                  fetchpriority="high"
+                />
+            </picture>
            
             <div class="hero-content">
                 <div class="container">
@@ -84,21 +122,21 @@
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr1.jpg" alt="product: Penom Case">
+                            <img src="images/vr1.jpg" alt="product: Penom Case" width="300" height="auto" loading="lazy">
                         </div>
                         <div class="product-info">
-                            <h5 class="categories">Headsets, Apple</h5>
+                            <h3 class="categories">Headsets, Apple</h3>
                             <h4 class="title">Apple Headset</h4>
-                            <h3 class="price">
+                            <h5 class="price">
                                 <span>US$ 450.00</span>
-                            </h3>
+                            </h5>
                             <button>Add to bag</button>
                         </div>
                     </div>
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr2.jpg" alt="product: Noise Cancelling Headphone">
+                            <img src="images/vr2.jpg" alt="product: Noise Cancelling Headphone" width="300" height="auto" loading="lazy">
                         </div>
                         <div class="product-info">
                             <h5 class="categories">Headsets, PS</h5>
@@ -112,7 +150,7 @@
 
                     <div class="product">
                         <div class="product-picture">
-                            <img src="images/vr3.jpg" alt="product: Canon Digital SLR EOS Rebel T6">
+                            <img src="images/vr3.jpg" alt="product: Canon Digital SLR EOS Rebel T6" width="300" height="auto" loading="lazy">
                         </div>
                         <div class="product-info">
                             <h5 class="categories">Headsets, Oculus</h5>
