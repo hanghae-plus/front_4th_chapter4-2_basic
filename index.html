@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Tech Shop</title>
     <link rel="stylesheet" href="/css/styles.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
     <!-- Google Tag Manager -->
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
+      (function (window, document, script, layer, id) {
+        window[layer] = window[layer] || [];
+        window[layer].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var scriptElement = document.createElement(script);
+        var firstScriptElement = document.getElementsByTagName(script)[0];
+        scriptElement.async = true;
+        scriptElement.src = "https://www.googletagmanager.com/gtm.js?id=" + id;
+        firstScriptElement.parentNode.insertBefore(
+          scriptElement,
+          firstScriptElement
+        );
       })(window, document, "script", "dataLayer", "GTM-PKK35GL5");
     </script>
     <!-- End Google Tag Manager -->
@@ -27,8 +30,9 @@
       type="text/javascript"
       src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
       charset="UTF-8"
+      defer
     ></script>
-    <script type="text/javascript" charset="UTF-8">
+    <script type="text/javascript" charset="UTF-8" defer>
       cookieconsent.run({
         notice_banner_type: "simple",
         consent_type: "express",
@@ -226,7 +230,7 @@
 
     <a href="#" id="open_preferences_center">Update cookies preferences</a>
 
-    <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/products.js"></script>
+    <script type="text/javascript" src="/js/main.js" defer></script>
+    <script type="text/javascript" src="/js/products.js" defer></script>
   </body>
 </html>

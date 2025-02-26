@@ -17,6 +17,11 @@
 - https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/b2xxoolhgq?form_factor=mobile
 - https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/b2xxoolhgq?form_factor=desktop
 
+### font 파일 추가하여 웹 폰트 API 제거
+
+- https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/z9xf31gj5g?form_factor=mobile
+- https://pagespeed.web.dev/analysis/https-d267jtlyf6x8wq-cloudfront-net/z9xf31gj5g?form_factor=desktop
+
 ### section.country-bar.hidden 불필요한 태그 삭제
 
 ## 성능 개선 보고서
