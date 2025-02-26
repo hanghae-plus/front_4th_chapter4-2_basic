@@ -456,14 +456,6 @@ footer .copyright-text {
     display: inline-block;
   }
 
-  section.hero img.desktop {
-    display: none;
-  }
-
-  section.hero img.tablet {
-    display: initial;
-  }
-
   .hero-content h1 {
     font-size: 40px;
     letter-spacing: 1px;
@@ -589,14 +581,6 @@ footer .copyright-text {
   header .logo .blue-dot {
     width: 7px;
     height: 7px;
-  }
-
-  section.hero img.tablet {
-    display: none;
-  }
-
-  section.hero img.mobile {
-    display: initial;
   }
 
   .hero-content {
