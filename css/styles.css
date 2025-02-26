@@ -1,3 +1,35 @@
+@font-face {
+    font-family: 'Heebo';
+    src: url('fonts/Heebo-Regular.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('fonts/Heebo-Light.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('fonts/Heebo-Medium.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('fonts/Heebo-Bold.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     font-family: 'Heebo', sans-serif;
@@ -355,7 +387,6 @@ section.newsletter form input {
     border: 1px solid #3E3E3E;
     border-right: none;
     color: #3E3E3E;
-    font-family: Heebo;
     font-size: 14px;
     letter-spacing: 0.35px;
     line-height: 21px;
