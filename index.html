@@ -75,7 +75,7 @@
             <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
             <li><a href="index.html#newsletter-section">Newsletter</a></li>
             <li class="menu-icon">
-              <img src="images/menu_icon.webp" loading="lazy" />
+              <img src="images/menu_icon.webp" />
             </li>
           </ul>
         </nav>
@@ -83,13 +83,21 @@
     </header>
 
     <section class="hero">
-      <img
-        class="desktop"
-        src="images/Hero_Desktop.webp"
-        fetchpriority="high"
-      />
-      <img class="mobile" src="images/Hero_Mobile.webp" loading="lazy" />
-      <img class="tablet" src="images/Hero_Tablet.webp" loading="lazy" />
+      <picture>
+        <source
+          width="576"
+          height="576"
+          media="(max-width: 575px)"
+          srcset="images/Hero_Mobile.webp"
+        />
+        <source
+          width="960"
+          height="770"
+          media="(min-width: 576px) and (max-width: 960px)"
+          srcset="images/Hero_Tablet.webp"
+        />
+        <img width="1920" height="893" src="images/Hero_Desktop.webp" />
+      </picture>
 
       <div class="hero-content">
         <div class="container">
@@ -112,11 +120,7 @@
         <div class="container">
           <div class="product new">
             <div class="product-picture">
-              <img
-                src="images/vr1.webp"
-                alt="product: Penom Case"
-                loading="lazy"
-              />
+              <img src="images/vr1.webp" alt="product: Penom Case" />
             </div>
             <div class="product-info">
               <h5 class="categories">Headsets, Apple</h5>
@@ -133,7 +137,6 @@
               <img
                 src="images/vr2.webp"
                 alt="product: Noise Cancelling Headphone"
-                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -151,7 +154,6 @@
               <img
                 src="images/vr3.webp"
                 alt="product: Canon Digital SLR EOS Rebel T6"
-                loading="lazy"
               />
             </div>
             <div class="product-info">
