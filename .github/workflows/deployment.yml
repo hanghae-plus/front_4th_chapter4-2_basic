@@ -30,23 +30,19 @@ jobs:
             --exclude ".github/*" \
             --exclude "node_modules/*" \
             --cache-control "public, max-age=2592000" \
-            --acl public-read
 
           # 이미지 파일 캐시 설정 (30일)
           aws s3 sync img/ s3://${{ secrets.S3_BUCKET_NAME }}/img \
             --cache-control "public, max-age=2592000" \
-            --acl public-read
 
           # CSS/JS 캐시 설정 (7일, 검증 필요)
           aws s3 sync css/ s3://${{ secrets.S3_BUCKET_NAME }}/css \
             --exclude "*.html" \
             --cache-control "public, max-age=604800, must-revalidate" \
-            --acl public-read
 
           aws s3 sync js/ s3://${{ secrets.S3_BUCKET_NAME }}/js \
             --exclude "*.html" \
             --cache-control "public, max-age=604800, must-revalidate" \
-            --acl public-read
 
       - name: Invalidate CloudFront cache
         run: |
