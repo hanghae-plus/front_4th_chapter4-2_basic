@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home - Tech Shop</title>
-        <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet">
+        
         <link rel="stylesheet" href="/css/styles.css">
         <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
         <!-- Google Tag Manager -->
@@ -19,9 +19,15 @@
         <!-- End Google Tag Manager -->
 
         <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-        <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
-        <script type="text/javascript" charset="UTF-8">
-            cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
+        <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8" defer></script>
+        <script type="text/javascript" charset="UTF-8" defer>
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof cookieconsent !== 'undefined') {
+                    cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
+                } else {
+                    console.error('Cookie consent library not loaded properly');
+                }
+            });
         </script>
               
     </head>
@@ -48,7 +54,12 @@
                         <li><a href="about.html">About us</a></li>
                         <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
                         <li><a href="index.html#newsletter-section">Newsletter</a></li>
-                        <li class="menu-icon"><img src="images/menu_icon.png" ></li>
+                        <li class="menu-icon">
+                            <picture>
+                                <source srcset="images/menu_icon.webp" type="image/webp" />
+                                <img src="images/menu_icon.png" alt="icon: menu" />
+                            </picture>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -56,11 +67,19 @@
         
         <section class="hero">
 
-            <img class="desktop" src="images/Hero_Desktop.jpg">
-            <img class="mobile" src="images/Hero_Mobile.jpg">
-            <img class="tablet" src="images/Hero_Tablet.jpg">
+            <picture>
+                <source srcset="images/Hero_Desktop.webp" type="image/webp" />
+                <img class="desktop" src="images/Hero_Desktop.png" alt="screen: Desktop Case" />
+            </picture>
+            <picture>
+                <source srcset="images/Hero_Mobile.webp" type="image/webp" />
+                <img class="mobile" src="images/Hero_Mobile.png" alt="screen: Mobile Case" />
+            </picture>
+            <picture>
+                <source srcset="images/Hero_Tablet.webp" type="image/webp" />
+                <img class="tablet" src="images/Hero_Tablet.png" alt="screen: Tablet Case" />
+            </picture>
 
-           
             <div class="hero-content">
                 <div class="container">
                     <h1>Discover our line of VR Headsets</h1>
@@ -84,7 +103,10 @@
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr1.jpg" alt="product: Penom Case">
+                            <picture>
+                                <source srcset="images/vr1.webp" type="image/webp" />
+                                <img src="images/vr1.png" alt="product: Penom Case" />
+                            </picture>
                         </div>
                         <div class="product-info">
                             <h5 class="categories">Headsets, Apple</h5>
@@ -98,7 +120,10 @@
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr2.jpg" alt="product: Noise Cancelling Headphone">
+                            <picture>
+                                <source srcset="images/vr2.webp" type="image/webp" />
+                                <img src="images/vr2.png" alt="product: Noise Cancelling Headphone" />
+                            </picture>
                         </div>
                         <div class="product-info">
                             <h5 class="categories">Headsets, PS</h5>
@@ -112,7 +137,10 @@
 
                     <div class="product">
                         <div class="product-picture">
-                            <img src="images/vr3.jpg" alt="product: Canon Digital SLR EOS Rebel T6">
+                            <picture>
+                                <source srcset="images/vr3.webp" type="image/webp" />
+                                <img src="images/vr3.png" alt="product: Canon Digital SLR EOS Rebel T6" />
+                            </picture>
                         </div>
                         <div class="product-info">
                             <h5 class="categories">Headsets, Oculus</h5>
