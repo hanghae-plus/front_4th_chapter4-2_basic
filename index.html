@@ -6,18 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Tech Shop</title>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="preload"
-      href="/css/styles.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="/css/styles.css" /></noscript>
-    <!-- <link rel="stylesheet" href="/css/styles.css" /> -->
+    <link rel="stylesheet" href="/css/styles.css" />
     <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
     <!-- Google Tag Manager -->
     <script>
@@ -36,6 +25,7 @@
 
     <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
     <script
+      async
       type="text/javascript"
       src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
       charset="UTF-8"
@@ -82,7 +72,9 @@
             <li><a href="about.html">About us</a></li>
             <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
             <li><a href="index.html#newsletter-section">Newsletter</a></li>
-            <li class="menu-icon"><img src="images/menu_icon.png" /></li>
+            <li class="menu-icon">
+              <img src="images/menu_icon.png" alt="menu-icon" />
+            </li>
           </ul>
         </nav>
       </div>
@@ -94,6 +86,9 @@
         src="images/Hero_Desktop.webp"
         loading="lazy"
         fetchpriority="high"
+        alt="desktop"
+        width="1200"
+        height="600"
       />
       <img
         class="mobile"
@@ -101,6 +96,7 @@
         loading="lazy"
         width="300"
         height="200"
+        alt="mobile"
       />
       <img
         class="tablet"
@@ -108,6 +104,7 @@
         loading="lazy"
         width="300"
         height="200"
+        alt="tablet"
       />
 
       <div class="hero-content">
@@ -264,7 +261,7 @@
 
     <a href="#" id="open_preferences_center">Update cookies preferences</a>
 
-    <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/products.js"></script>
+    <script type="text/javascript" src="/js/main.js" defer></script>
+    <script type="text/javascript" src="/js/products.js" defer></script>
   </body>
 </html>
