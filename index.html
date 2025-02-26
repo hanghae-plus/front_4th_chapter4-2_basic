@@ -6,24 +6,43 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home - Tech Shop</title>
+        <!-- SEO -->
+        <meta name="description" content="최고의 VR 헤드셋을 만나보세요. 다양한 브랜드의 최신 VR 기기를 합리적인 가격에 제공합니다.">
+        <meta property="og:title" content="VR Headsets - 최신 VR 기기 전문 쇼핑몰">
+        <meta property="og:description" content="최고의 VR 헤드셋을 만나보세요. 다양한 브랜드의 최신 VR 기기를 합리적인 가격에 제공합니다.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://www.yourwebsite.com/images/Hero_Desktop.webp">
+        <!-- END SEO -->
         <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/styles.css">
         <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
         <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        <script async>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PKK35GL5');
+        })(window,document,'script','dataLayer','GTM-PKK35GL5');
         </script>
         <!-- End Google Tag Manager -->
 
         <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-        <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
-        <script type="text/javascript" charset="UTF-8">
-            cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
+        <script defer type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+        <script defer type="text/javascript" charset="UTF-8">
+            window.addEventListener("load", function () {
+                if (typeof cookieconsent !== "undefined") {
+                    cookieconsent.run({
+                        notice_banner_type: "simple",
+                        consent_type: "express",
+                        palette: "light",
+                        language: "en",
+                        page_load_consent_levels: ["strictly-necessary"],
+                        website_name: "Performance Course",
+                    });
+                } else {
+                    console.error("CookieConsent script failed to load.");
+                }});
         </script>
-              
+
     </head>
 
     <body>
@@ -32,14 +51,14 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKK35GL5"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-        
+
         <header>
             <div class="container">
                 <section class="logo">
                     <a href="index.html">
                         <strong>VR</strong>
                         <span class="blue-dot"></span>
-                        <span class="blue-dot"></span>  
+                        <span class="blue-dot"></span>
                         <span>Headsets</span>
                     </a>
                 </section>
@@ -48,27 +67,44 @@
                         <li><a href="about.html">About us</a></li>
                         <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
                         <li><a href="index.html#newsletter-section">Newsletter</a></li>
-                        <li class="menu-icon"><img src="images/menu_icon.png" ></li>
+                        <li class="menu-icon"><img src="images/menu_icon.webp" alt="icon"></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        
+
         <section class="hero">
 
-            <img class="desktop" src="images/Hero_Desktop.jpg">
-            <img class="mobile" src="images/Hero_Mobile.jpg">
-            <img class="tablet" src="images/Hero_Tablet.jpg">
+            <picture>
+                <!-- 모바일 -->
+                <source
+                    width="767"
+                    height="767"
+                    media="(max-width: 767px)"
+                    srcset="images/Hero_Mobile.webp">
+                <!-- 태블릿 -->
+                <source
+                    width="1023"
+                    height="1023"
+                    media="(max-width: 1023px)"
+                    srcset="images/Hero_Tablet.webp">
+                <!-- 데스크탑 -->
+                <img
+                    width="2160"
+                    height="1005"
+                    src="images/Hero_Desktop.webp"
+                    alt="VR 헤드셋 이미지"
+                    class="hero-image">
+            </picture>
 
-           
             <div class="hero-content">
                 <div class="container">
                     <h1>Discover our line of VR Headsets</h1>
                     <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                         doloremque laudantium.
                     </p>
-                    <button>View Headsets</button>
+                    <button aria-label="View Headsets">View Headsets</button>
                 </div>
             </div>
         </section>
@@ -84,7 +120,7 @@
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr1.jpg" alt="product: Penom Case">
+                            <img src="images/vr1.webp" alt="product: Penom Case">
                         </div>
                         <div class="product-info">
                             <h5 class="categories">Headsets, Apple</h5>
@@ -92,13 +128,13 @@
                             <h3 class="price">
                                 <span>US$ 450.00</span>
                             </h3>
-                            <button>Add to bag</button>
+                            <button aria-label="Add to bag">Add to bag</button>
                         </div>
                     </div>
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr2.jpg" alt="product: Noise Cancelling Headphone">
+                            <img src="images/vr2.webp" alt="product: Noise Cancelling Headphone">
                         </div>
                         <div class="product-info">
                             <h5 class="categories">Headsets, PS</h5>
@@ -106,13 +142,13 @@
                             <h3 class="price">
                                 <span>US$ 399.99</span>
                             </h3>
-                            <button>Add to bag</button>
+                            <button aria-label="Add to bag">Add to bag</button>
                         </div>
                     </div>
 
                     <div class="product">
                         <div class="product-picture">
-                            <img src="images/vr3.jpg" alt="product: Canon Digital SLR EOS Rebel T6">
+                            <img src="images/vr3.webp" alt="product: Canon Digital SLR EOS Rebel T6">
                         </div>
                         <div class="product-info">
                             <h5 class="categories">Headsets, Oculus</h5>
@@ -121,7 +157,7 @@
                                 <span class="discounted-price">US$ 349.99</span>
                                 <span class="original-price">US$ 419.99</span>
                             </h3>
-                            <button>Add to bag</button>
+                            <button aria-label="Add to bag">Add to bag</button>
                         </div>
                     </div>
 
@@ -144,7 +180,7 @@
             <p>Subscribe now and don't miss a single deal!</p>
             <form>
                 <input type="email" name="email" placeholder="Your email...">
-                <button type="submit">Subscribe</button>
+                <button type="submit" aria-label="Subscribe">Subscribe</button>
             </form>
         </section>
 
@@ -196,10 +232,10 @@
 
 
          <a href="#" id="open_preferences_center">Update cookies preferences</a>
- 
 
-        <script type="text/javascript" src="/js/main.js"></script>
-        <script type="text/javascript" src="/js/products.js"></script>
+        <!-- 페이지 렌더링에 필요한 핵심 스크립트 -->
+        <script defer type="text/javascript" src="/js/main.js"></script>
+        <script defer type="text/javascript" src="/js/products.js"></script>
 
     </body>
 
