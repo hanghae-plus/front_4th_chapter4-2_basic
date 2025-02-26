@@ -39,7 +39,7 @@ jobs:
         id: lighthouse
         continue-on-error: true
         run: |
-          URL="${{ github.event.inputs.url || 'http://localhost:8080' }}"
+          URL="${{ github.event.inputs.url || 'https://d3718kxenlxcvg.cloudfront.net/' }}"
           lhci autorun --collect.url=$URL
 
       - name: Create GitHub Issue with Results
