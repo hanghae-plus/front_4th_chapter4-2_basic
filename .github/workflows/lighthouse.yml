@@ -2,6 +2,9 @@ name: Lighthouse CI
 
 on:
   workflow_call:
+    secrets:
+        AWS_CLOUDFRONT_URL:
+          required: true
 
 permissions:
   issues: write

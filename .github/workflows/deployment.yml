@@ -34,5 +34,4 @@ jobs:
   lighthouse:
     needs: deploy
     uses: ./.github/workflows/lighthouse.yml
-    secrets:
-      AWS_CLOUDFRONT_URL: ${{ secrets.AWS_CLOUDFRONT_URL }}
+    secrets: inherit
