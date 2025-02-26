@@ -68,8 +68,8 @@ loadProducts();
 
 // Simulate heavy operation. It could be a complex price calculation.
 // 무거운 연산을 백그라운드에서 수행하여 UI 차단 방지
-// requestIdleCallback(() => {
-for (let i = 0; i < 10000000; i++) {
-  const temp = Math.sqrt(i) * Math.sqrt(i);
-}
-// });
+requestIdleCallback(() => {
+  for (let i = 0; i < 10000000; i++) {
+    const temp = Math.sqrt(i) * Math.sqrt(i);
+  }
+});
