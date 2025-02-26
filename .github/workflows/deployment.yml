@@ -1,9 +1,9 @@
-name: Deploy S3 and invalidate CloudFront
+name: Deploy classic Frontend to S3 and invalidate CloudFront
 
 on:
   push:
     branches:
-      - main # 또는 master, 프로젝트의 기본 브랜치 이름에 맞게 조정
+      - main
   workflow_dispatch:
 
 jobs:
@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: install Nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -23,7 +28,11 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} --delete
+          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude ".gitignore" \
+            --exclude "README.md"
 
       - name: Invalidate CloudFront cache
         run: |
