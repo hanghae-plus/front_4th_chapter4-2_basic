@@ -66,10 +66,54 @@ function displayProducts(products) {
 
 
 
-loadProducts();
+/**
+ * 지연 로딩
+ * 제품 섹션에 접근할 때만 무거운 작업 수행
+ */
+window.onload = () => {
+    let status = 'idle';
 
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-    const temp = Math.sqrt(i) * Math.sqrt(i);
+    let productSection = document.querySelector('#all-products');
+
+
+    window.onscroll = () => {
+        let position = productSection.getBoundingClientRect().top - (window.scrollY + window.innerHeight);
+
+        if (status === 'idle' && position <= 0) {
+            status = 'loading';
+
+            loadProducts();
+
+            setTimeout(() => {
+                // 무거운 작업을 청크(chunk)로 나누어 처리
+                processHeavyCalculationInChunks(10000000, () => {
+                    status = 'complete';
+                    console.log('Heavy calculation completed');
+                });
+            }, 0);
+        }
+    }
+}
+
+function processHeavyCalculationInChunks(totalIterations, callback, chunkSize = 10000, index = 0) {
+    // 현재 청크에서 처리할 반복 횟수 계산
+    const currentChunkSize = Math.min(chunkSize, totalIterations - index);
+
+    // 청크 처리
+    if (currentChunkSize > 0) {
+        // 현재 청크 실행
+        setTimeout(() => {
+            for (let i = 0; i < currentChunkSize; i++) {
+                const currentIndex = index + i;
+                const temp = Math.sqrt(currentIndex) * Math.sqrt(currentIndex);
+            }
+
+            // 다음 청크 처리를 위한 재귀 호출
+            processHeavyCalculationInChunks(totalIterations, callback, chunkSize, index + currentChunkSize);
+        }, 0);
+    } else {
+        // 모든 청크 처리 완료
+        callback();
+    }
 }
 
