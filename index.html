@@ -24,20 +24,16 @@
         <link rel="stylesheet" href="/css/styles.css" />
         <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
         <!-- Google Tag Manager -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtm.js?id=GTM-PKK35GL5"
+        ></script>
         <script>
-            (function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({
-                    'gtm.start': new Date().getTime(),
-                    event: 'gtm.js',
-                });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-PKK35GL5');
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js',
+            });
         </script>
         <!-- End Google Tag Manager -->
 
@@ -130,12 +126,12 @@
 
                 <!-- 태블릿 이미지 -->
                 <source
-                    media="(min-width: 768px)"
+                    media="(min-width: 768px) and (max-width: 1023px)"
                     srcset="images/Hero_Tablet.webp"
                     type="image/webp"
                 />
                 <source
-                    media="(min-width: 768px)"
+                    media="(min-width: 768px) and (max-width: 1023px)"
                     srcset="images/Hero_Tablet.jpg"
                     type="image/jpeg"
                 />
@@ -145,8 +141,8 @@
                 <img
                     src="images/Hero_Mobile.jpg"
                     alt="VR headset showcase"
-                    width="767"
-                    height="767"
+                    width="100%"
+                    style="display: block"
                 />
             </picture>
 
@@ -289,7 +285,7 @@
 
         <a href="#" id="open_preferences_center">Update cookies preferences</a>
 
-        <script type="text/javascript" src="/js/main.js"></script>
-        <script type="text/javascript" src="/js/products.js"></script>
+        <script type="text/javascript" src="/js/main.js" defer></script>
+        <script type="text/javascript" src="/js/products.js" defer></script>
     </body>
 </html>
