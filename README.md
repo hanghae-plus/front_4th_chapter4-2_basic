@@ -1,6 +1,6 @@
 # 웹사이트 성능 최적화 보고서
 ## 파이프라인 구축
-> 배포 URL : https://github.com/devJayve/front_4th_chapter4-2_basic/issues/7#issue-2880394076  
+> 배포 URL : [d3a7hjtem70z7.cloudfront.net](https://d3a7hjtem70z7.cloudfront.net/)
 
 배포의 경우 9주차와 동일한 파이프라인으로 S3, Cloudfront를 이용하였습니다.
 S3 버킷에 배포한 뒤 Github action 시크릿 값에 포함된 Cloudfront URL을 기준으로 3회 반복 Lighthouse Metric 측정을 수행하였습니다.
@@ -13,8 +13,7 @@ lighthouse:
     secrets: inherit
 ```
 
-## 사전 지표
-[Github Issue](https://github.com/devJayve/front_4th_chapter4-2_basic/issues/7)
+## [사전지표](https://github.com/devJayve/front_4th_chapter4-2_basic/issues/7)
 
 ### 🎯 Lighthouse 점수
 | 카테고리           | 점수  | 상태 |
