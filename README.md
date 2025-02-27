@@ -28,6 +28,8 @@
 
 ### 개선 후
 
+- https://pagespeed.web.dev/analysis/https-d1dxxe35ykrggl-cloudfront-net/yk0k4fn06h?form_factor=desktop
+
 #### 🎯 Lighthouse 점수
 
 | 카테고리       | 점수 | 상태 |
