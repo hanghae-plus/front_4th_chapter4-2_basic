@@ -1,9 +1,36 @@
+@font-face {
+    font-family: 'Heebo';
+    src: url('fonts/Heebo-Regular.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Heebo';
+    src: url('fonts/Heebo-Light.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('fonts/Heebo-Medium.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('fonts/Heebo-Bold.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 700;
+}
 
 
 body {
+    font-family: 'Heebo', sans-serif;
     margin: 0;
-    font-family: 'Heebo';
     padding-top: 80px;
 }
 
@@ -101,11 +128,6 @@ section.hero img {
     width: 100%;
     height: auto;
     filter: brightness(50%);
-    display: none;
-}
-
-section.hero img.desktop {
-    display: initial;
 }
 
 .hero-content {
@@ -152,7 +174,7 @@ section.hero img.desktop {
     width: 220px;
     max-width: 100%;
     border-radius: 92px;
-    background-color: #33c6dd;
+    background-color: #166a77;
     color: #FFF;
     font-size: 16px;
     font-weight: 700;
@@ -266,7 +288,7 @@ section.best-sellers .product-slider .product .product-info {
 }
 
 section.best-sellers .product-slider .product .product-info .categories {
-    color: #33c6dd;
+    color: #0d4047;
     font-weight: normal;
     font-size: 14px;
     letter-spacing: 0.35px;
@@ -296,11 +318,11 @@ section.best-sellers .product-slider .product .product-info .price {
 }
 
 section.best-sellers .product-slider .product .product-info .price .discounted-price {
-    color: #EC1C1C;
+    color: #D10000;
 }
 
 section.best-sellers .product-slider .product .product-info .price .original-price {
-    color: #9B9B9B;
+    color: #656464;
     font-weight: normal;
     font-size: 16px;
     letter-spacing: 0.4px;
@@ -323,8 +345,8 @@ section.best-sellers .product-slider .product .product-info button {
 }
 
 section.best-sellers .product-slider .product:hover .product-info button {
-    background-color: #33c6dd;
-    border: 1px solid #33c6dd;
+    background-color: #008799;
+    border: 1px solid #008799;
     color: white;
 }
 

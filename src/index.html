@@ -5,9 +5,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Discover premium VR headsets from top brands including Apple, PlayStation, and Oculus. Shop our best-selling virtual reality products for immersive gaming and experiences.">
+        <meta name="keywords" content="VR headsets, virtual reality, Apple headset, PlayStation VR, Oculus, gaming headsets">
+        <meta name="author" content="VR Headsets">
+        <meta property="og:title" content="Premium VR Headsets - Tech Shop">
+        <meta property="og:description" content="Explore our collection of high-quality VR headsets from leading brands. Find the perfect virtual reality headset for gaming and immersive experiences.">
+        <meta property="og:image" content="https://yourwebsite.com/images/vr1.webp">
+        <meta property="og:url" content="https://yourwebsite.com">
+        <meta property="og:type" content="website">
         <title>Home - Tech Shop</title>
-        <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="./css/styles.css">
         <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -19,9 +26,11 @@
         <!-- End Google Tag Manager -->
 
         <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-        <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
-        <script type="text/javascript" charset="UTF-8">
-            cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
+        <script defer type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+        <script defer type="text/javascript" charset="UTF-8">
+            document.addEventListener('DOMContentLoaded', function () {
+                cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
+            });
         </script>
               
     </head>
@@ -48,7 +57,7 @@
                         <li><a href="about.html">About us</a></li>
                         <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
                         <li><a href="index.html#newsletter-section">Newsletter</a></li>
-                        <li class="menu-icon"><img src="images/menu_icon.png" ></li>
+                        <li class="menu-icon"><img src="images/menu_icon.webp" alt="menu"></li>
                     </ul>
                 </nav>
             </div>
@@ -56,9 +65,11 @@
         
         <section class="hero">
 
-            <img class="desktop" src="images/Hero_Desktop.jpg">
-            <img class="mobile" src="images/Hero_Mobile.jpg">
-            <img class="tablet" src="images/Hero_Tablet.jpg">
+            <picture>
+                <source width="576" height="576" media="(max-width: 575px)" srcset="images/Hero_Mobile.webp">
+                <source width="960" height="770" media="(min-width: 576px) and (max-width: 960px)" srcset="images/Hero_Tablet.webp">
+                <img width="1920" height="893" src="images/Hero_Desktop.webp" alt="Hero Desktop">
+            </picture>
 
            
             <div class="hero-content">
@@ -73,7 +84,7 @@
             </div>
         </section>
 
-        <section class="country-bar hidden">
+        <section class="country-bar">
         </section>
 
         <section class="best-sellers" id="best-sellers-section">
@@ -84,43 +95,44 @@
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr1.jpg" alt="product: Penom Case">
+                            <img src="images/vr1.webp" alt="product: VR Penom Case">
+
                         </div>
                         <div class="product-info">
-                            <h5 class="categories">Headsets, Apple</h5>
-                            <h4 class="title">Apple Headset</h4>
-                            <h3 class="price">
+                            <h3 class="title">Apple Headset</h3>
+                            <h4 class="categories">Headsets, Apple</h4>
+                            <h5 class="price">
                                 <span>US$ 450.00</span>
-                            </h3>
+                            </h5>
                             <button>Add to bag</button>
                         </div>
                     </div>
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr2.jpg" alt="product: Noise Cancelling Headphone">
+                            <img src="images/vr2.webp" alt="product: Noise Cancelling Headphone">
                         </div>
                         <div class="product-info">
-                            <h5 class="categories">Headsets, PS</h5>
-                            <h4 class="title">Playstation Headset</h4>
                             <h3 class="price">
                                 <span>US$ 399.99</span>
                             </h3>
+                            <h4 class="title">Playstation Headset</h4>
+                            <h5 class="categories">Headsets, PS</h5>
                             <button>Add to bag</button>
                         </div>
                     </div>
 
                     <div class="product">
                         <div class="product-picture">
-                            <img src="images/vr3.jpg" alt="product: Canon Digital SLR EOS Rebel T6">
+                            <img src="images/vr3.webp" alt="product: Canon Digital SLR EOS Rebel T6">
                         </div>
                         <div class="product-info">
-                            <h5 class="categories">Headsets, Oculus</h5>
-                            <h4 class="title">Oculus Headset</h4>
                             <h3 class="price">
                                 <span class="discounted-price">US$ 349.99</span>
                                 <span class="original-price">US$ 419.99</span>
                             </h3>
+                            <h4 class="title">Oculus Headset</h4>
+                            <h5 class="categories">Headsets, Oculus</h5>
                             <button>Add to bag</button>
                         </div>
                     </div>
@@ -140,10 +152,11 @@
         </section>
 
         <section class="newsletter" id="newsletter-section">
-            <h3>Newsletter Signup</h3>
+            <h2>Newsletter Signup</h2>
             <p>Subscribe now and don't miss a single deal!</p>
             <form>
-                <input type="email" name="email" placeholder="Your email...">
+                <label for="email-input">Email Address</label>
+                <input id="email-input" type="email" name="email" placeholder="Your email...">
                 <button type="submit">Subscribe</button>
             </form>
         </section>
@@ -198,8 +211,8 @@
          <a href="#" id="open_preferences_center">Update cookies preferences</a>
  
 
-        <script type="text/javascript" src="/js/main.js"></script>
-        <script type="text/javascript" src="/js/products.js"></script>
+        <script type="text/javascript" src="./js/main.js"></script>
+        <script type="text/javascript" src="./js/products.js"></script>
 
     </body>
 
