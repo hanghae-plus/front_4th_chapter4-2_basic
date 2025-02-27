@@ -1,7 +1,5 @@
 # 바닐라 JS 프로젝트 : 성능 개선 보고서
-> - url: https://front-4th-chapter4-2-basic-one.vercel.app/
-- 초기 성능 측정 git issue : [https://github.com/jmlee9707/front_4th_chapter4-2_basic/issues/1](https://github.com/jmlee9707/front_4th_chapter4-2_basic/issues/1)
-- 개선 후 성능 측정 git issue :
+> url: https://front-4th-chapter4-2-basic-one.vercel.app/
 
 ## 1. 프로젝트 배포
 
