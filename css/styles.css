@@ -130,6 +130,22 @@ section.hero img {
   filter: brightness(50%);
 }
 
+section.hero .progressive-image {
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease-out;
+}
+
+section.hero .progressive-image[data-src] {
+  filter: blur(10px);
+  opacity: 1;
+}
+
+section.hero .progressive-image.loaded {
+  filter: none;
+  opacity: 1;
+}
+
 .hero-content {
   position: absolute;
   top: 0;

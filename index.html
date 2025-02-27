@@ -23,12 +23,16 @@
     <!-- End Google Tag Manager -->
 
     <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-    <script
-      type="text/javascript"
-      src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
-      charset="UTF-8"
-      defer
-    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src =
+          "//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js";
+        script.charset = "UTF-8";
+        document.body.appendChild(script);
+      });
+    </script>
 
     <script type="text/javascript" charset="UTF-8" defer>
       cookieconsent.run({
@@ -105,7 +109,8 @@
           loading="lazy"
         />
         <img
-          class="desktop"
+          class="desktop progressive-image"
+          data-src="images/low-res-image.webp"
           src="images/Hero_Desktop.webp"
           alt="hero: desktop image"
           width="1920"

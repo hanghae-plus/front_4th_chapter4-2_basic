@@ -9,4 +9,30 @@ function showTopBar() {
   }, 1000);
 }
 
+function loadHighResImage(img) {
+  const highResSource = img.dataset.src;
+  if (highResSource) {
+    img.src = highResSource;
+    img.classList.add("loaded");
+    img.removeAttribute("data-src");
+  }
+}
+
+function preloadLowQualityImage() {
+  const images = document.querySelectorAll(".progressive-image");
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        loadHighResImage(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  });
+
+  images.forEach((img) => observer.observe(img));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  preloadLowQualityImage();
+});
 showTopBar();
