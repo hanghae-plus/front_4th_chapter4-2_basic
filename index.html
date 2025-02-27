@@ -103,7 +103,11 @@
                             >
                         </li>
                         <li class="menu-icon">
-                            <img src="images/menu_icon.png" alt="menu icon" />
+                            <img
+                                src="images/menu_icon.webp"
+                                alt="menu icon"
+                                loading="lazy"
+                            />
                         </li>
                     </ul>
                 </nav>
@@ -111,21 +115,40 @@
         </header>
 
         <section class="hero">
-            <img
-                class="desktop"
-                src="images/Hero_Desktop.jpg"
-                alt="desktop VR headset showcase"
-            />
-            <img
-                class="mobile"
-                src="images/Hero_Mobile.jpg"
-                alt="mobile VR headset showcase"
-            />
-            <img
-                class="tablet"
-                src="images/Hero_Tablet.jpg"
-                alt="tablet VR headset showcase"
-            />
+            <picture>
+                <!-- 데스크톱 이미지 -->
+                <source
+                    media="(min-width: 1024px)"
+                    srcset="images/Hero_Desktop.webp"
+                    type="image/webp"
+                />
+                <source
+                    media="(min-width: 1024px)"
+                    srcset="images/Hero_Desktop.jpg"
+                    type="image/jpeg"
+                />
+
+                <!-- 태블릿 이미지 -->
+                <source
+                    media="(min-width: 768px)"
+                    srcset="images/Hero_Tablet.webp"
+                    type="image/webp"
+                />
+                <source
+                    media="(min-width: 768px)"
+                    srcset="images/Hero_Tablet.jpg"
+                    type="image/jpeg"
+                />
+
+                <!-- 모바일 이미지 (기본값) -->
+                <source srcset="images/Hero_Mobile.webp" type="image/webp" />
+                <img
+                    src="images/Hero_Mobile.jpg"
+                    alt="VR headset showcase"
+                    width="767"
+                    height="767"
+                />
+            </picture>
 
             <div class="hero-content">
                 <div class="container">
@@ -144,13 +167,14 @@
         <section class="best-sellers" id="best-sellers-section">
             <h1>Best Sellers</h1>
             <hr />
-            <div class="product-slider">
+            <div class="product-slider" aria-label="Product slider">
                 <div class="container">
                     <div class="product new">
                         <div class="product-picture">
                             <img
-                                src="images/vr1.jpg"
+                                src="images/vr1.webp"
                                 alt="product: Penom Case"
+                                loading="lazy"
                             />
                         </div>
                         <div class="product-info">
@@ -166,8 +190,9 @@
                     <div class="product new">
                         <div class="product-picture">
                             <img
-                                src="images/vr2.jpg"
+                                src="images/vr2.webp"
                                 alt="product: Noise Cancelling Headphone"
+                                loading="lazy"
                             />
                         </div>
                         <div class="product-info">
@@ -183,8 +208,9 @@
                     <div class="product">
                         <div class="product-picture">
                             <img
-                                src="images/vr3.jpg"
+                                src="images/vr3.webp"
                                 alt="product: Canon Digital SLR EOS Rebel T6"
+                                loading="lazy"
                             />
                         </div>
                         <div class="product-info">
