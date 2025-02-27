@@ -151,7 +151,7 @@ jobs:
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `📊 웹사이트 성능 측정 결과 - ${new Date().toLocaleString('ko-KR', { 
+              title: `📊 웹사이트 성능 측정 결과 - ${context.payload.head_commit ? context.payload.head_commit.message.split('\n')[0] : new Date().toLocaleString('ko-KR', { 
                 timeZone: 'Asia/Seoul',
                 year: 'numeric',
                 month: '2-digit',
