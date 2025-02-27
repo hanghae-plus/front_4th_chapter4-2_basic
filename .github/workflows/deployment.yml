@@ -22,7 +22,7 @@ jobs:
         compressOnly: true
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -46,6 +46,7 @@ jobs:
           --include "*.jpg" \
           --include "*.png"
 
+    # HTML 파일 캐시 설정
     - name: Set proper Cache-Control for HTML files
       run: |
         aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/ s3://${{ secrets.S3_BUCKET_NAME }}/ \
@@ -56,6 +57,26 @@ jobs:
           --cache-control "no-cache, no-store, must-revalidate" \
           --content-type "text/html; charset=utf-8"
 
+    # 이미지 파일 캐시 설정
+    - name: Set proper Cache-Control for Image files
+      run: |
+        aws s3 sync images/ s3://${{ secrets.S3_BUCKET_NAME }}/images \
+          --cache-control "public, max-age=2592000"  # 30일 (2592000초)
+    
+    # CSS 파일 캐시 설정
+    - name: Set proper Cache-Control for CSS files
+      run: |
+        aws s3 sync css/ s3://${{ secrets.S3_BUCKET_NAME }}/css \
+          --exclude "*.html" \
+          --cache-control "public, max-age=604800, must-revalidate"  # 7일 (604800초)
+    
+    # JS 파일 캐시 설정
+    - name: Set proper Cache-Control for JS files
+      run: |
+        aws s3 sync js/ s3://${{ secrets.S3_BUCKET_NAME }}/js \
+          --exclude "*.html" \
+          --cache-control "public, max-age=604800, must-revalidate"  # 7일 (604800초)
+    
     - name: Invalidate CloudFront cache
       run: |
         aws cloudfront create-invalidation \
