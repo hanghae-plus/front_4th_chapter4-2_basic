@@ -9,15 +9,38 @@
       content="최고의 VR 헤드셋을 찾아보세요. 다양한 브랜드와 모델을 제공합니다."
     />
     <title>Home - Tech Shop</title>
+
+    <!-- 중요 리소스 프리로드 -->
+    <link rel="preload" href="/css/styles.css" as="style" />
+    <link
+      rel="preload"
+      href="images/Hero_Mobile.jpg"
+      as="image"
+      media="(max-width: 576px)"
+    />
+    <link
+      rel="preload"
+      href="images/Hero_Tablet.jpg"
+      as="image"
+      media="(min-width: 577px) and (max-width: 1023px)"
+    />
+    <link
+      rel="preload"
+      href="images/Hero_Desktop.jpg"
+      as="image"
+      media="(min-width: 1024px)"
+    />
+
+    <!-- 폰트 최적화 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- CSS 로딩 최적화 -->
     <link rel="stylesheet" href="/css/styles.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
-    <!-- Google Tag Manager -->
   </head>
 
   <body>
