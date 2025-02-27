@@ -1,7 +1,7 @@
 async function loadProducts() {
     const response = await fetch("https://fakestoreapi.com/products");
     const products = await response.json();
-    displayProducts(products);  
+    displayProducts(products);
 }
 
 function displayProducts(products) {
@@ -9,7 +9,6 @@ function displayProducts(products) {
     // Find the container where products will be displayed
     const container = document.querySelector('#all-products .container');
 
-   
     // Iterate over each product and create the HTML structure safely
     products.forEach(product => {
         // Create the main product div
@@ -23,13 +22,15 @@ function displayProducts(products) {
         img.src = product.image;
         img.alt = `product: ${product.title}`;
         img.width=250;
+        img.setAttribute('loading', 'lazy'); // 지연 로드 적용
+        img.style.objectFit = 'cover';
         pictureDiv.appendChild(img);
 
         // Create the product info div
         const infoDiv = document.createElement('div');
         infoDiv.classList.add('product-info');
 
-        const category = document.createElement('h5');
+        const category = document.createElement('h3');
         category.classList.add('categories');
         category.textContent = product.category;
 
@@ -37,7 +38,7 @@ function displayProducts(products) {
         title.classList.add('title');
         title.textContent = product.title;
 
-        const price = document.createElement('h3');
+        const price = document.createElement('h5');
         price.classList.add('price');
         const priceSpan = document.createElement('span');
         priceSpan.textContent = `US$ ${product.price}`;
@@ -59,17 +60,23 @@ function displayProducts(products) {
         // Append the new product element to the container
         container.appendChild(productElement);
     });
-
-    
-
 }
 
+window.onload = () => {
+    let status = 'idle';
 
+    let productSection = document.querySelector('#all-products');
 
-loadProducts();
+    window.onscroll = () => {
+        let position = productSection.getBoundingClientRect().top - (window.scrollY + window.innerHeight);
 
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-    const temp = Math.sqrt(i) * Math.sqrt(i);
+        if (status == 'idle' && position <= 0) {
+            loadProducts();
+
+            for (let i = 0; i < 10000000; i++) {
+                const temp = Math.sqrt(i) * Math.sqrt(i);
+            }
+        }
+    }
 }
 

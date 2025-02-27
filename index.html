@@ -5,9 +5,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Tech shop">
         <title>Home - Tech Shop</title>
-        <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="css/styles.css" >
         <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -19,27 +19,41 @@
         <!-- End Google Tag Manager -->
 
         <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-        <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
-        <script type="text/javascript" charset="UTF-8">
-            cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Performance Course"});
+        <script defer type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+        <script defer type="text/javascript" charset="UTF-8">
+            window.addEventListener('load', function() {
+                if (typeof cookieconsent !== 'undefined') {
+                    cookieconsent.run({
+                        "notice_banner_type": "simple",
+                        "consent_type": "express",
+                        "palette": "light",
+                        "language": "en",
+                        "page_load_consent_levels": ["strictly-necessary"],
+                        "notice_banner_reject_button_hide": false,
+                        "preferences_center_close_button_hide": false,
+                        "page_refresh_confirmation_buttons": false,
+                        "website_name": "Performance Course"
+                    });
+                } else {
+                    console.error('cookieconsent is not defined');
+                }
+            });
         </script>
-              
+
     </head>
 
     <body>
-
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKK35GL5"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-        
         <header>
             <div class="container">
                 <section class="logo">
                     <a href="index.html">
                         <strong>VR</strong>
                         <span class="blue-dot"></span>
-                        <span class="blue-dot"></span>  
+                        <span class="blue-dot"></span>
                         <span>Headsets</span>
                     </a>
                 </section>
@@ -48,24 +62,26 @@
                         <li><a href="about.html">About us</a></li>
                         <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
                         <li><a href="index.html#newsletter-section">Newsletter</a></li>
-                        <li class="menu-icon"><img src="images/menu_icon.png" ></li>
+                        <li class="menu-icon"><img alt="menu icon" src="images/menu_icon.webp" width="24" height="16"></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        
         <section class="hero">
 
-            <img class="desktop" src="images/Hero_Desktop.jpg">
-            <img class="mobile" src="images/Hero_Mobile.jpg">
-            <img class="tablet" src="images/Hero_Tablet.jpg">
+            <img class="desktop"
+            alt="main banner"
+            src="images/Hero_Desktop.webp"
+            srcset="images/Hero_Mobile.webp 768w 576h,
+                    images/Hero_Tablet.webp 1024w 770h,
+                    images/Hero_Desktop.webp 1920w 893h"
+            sizes="100vw">
 
-           
             <div class="hero-content">
                 <div class="container">
                     <h1>Discover our line of VR Headsets</h1>
                     <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                         doloremque laudantium.
                     </p>
                     <button>View Headsets</button>
@@ -73,54 +89,54 @@
             </div>
         </section>
 
-        <section class="country-bar hidden">
+        <section class="country-bar">
         </section>
 
         <section class="best-sellers" id="best-sellers-section">
-            <h1>Best Sellers</h1>
+            <h2>Best Sellers</h2>
             <hr>
             <div class="product-slider">
                 <div class="container">
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr1.jpg" alt="product: Penom Case">
+                            <img src="images/vr1.webp" alt="product: Penom Case" width="200" height="100">
                         </div>
                         <div class="product-info">
-                            <h5 class="categories">Headsets, Apple</h5>
+                            <h3 class="categories">Headsets, Apple</h3>
                             <h4 class="title">Apple Headset</h4>
-                            <h3 class="price">
+                            <h5 class="price">
                                 <span>US$ 450.00</span>
-                            </h3>
+                            </h5>
                             <button>Add to bag</button>
                         </div>
                     </div>
 
                     <div class="product new">
                         <div class="product-picture">
-                            <img src="images/vr2.jpg" alt="product: Noise Cancelling Headphone">
+                            <img src="images/vr2.webp" alt="product: Noise Cancelling Headphone" width="200" height="100">
                         </div>
                         <div class="product-info">
-                            <h5 class="categories">Headsets, PS</h5>
+                            <h3 class="categories">Headsets, PS</h3>
                             <h4 class="title">Playstation Headset</h4>
-                            <h3 class="price">
+                            <h5 class="price">
                                 <span>US$ 399.99</span>
-                            </h3>
+                            </h5>
                             <button>Add to bag</button>
                         </div>
                     </div>
 
                     <div class="product">
                         <div class="product-picture">
-                            <img src="images/vr3.jpg" alt="product: Canon Digital SLR EOS Rebel T6">
+                            <img src="images/vr3.webp" alt="product: Canon Digital SLR EOS Rebel T6" width="200" height="100">
                         </div>
                         <div class="product-info">
-                            <h5 class="categories">Headsets, Oculus</h5>
+                            <h3 class="categories">Headsets, Oculus</h3>
                             <h4 class="title">Oculus Headset</h4>
-                            <h3 class="price">
+                            <h5 class="price">
                                 <span class="discounted-price">US$ 349.99</span>
                                 <span class="original-price">US$ 419.99</span>
-                            </h3>
+                            </h5>
                             <button>Add to bag</button>
                         </div>
                     </div>
@@ -130,7 +146,7 @@
         </section>
 
         <section class="best-sellers">
-            <h1>All Products</h1>
+            <h2>All Products</h2>
             <hr>
             <div class="product-slider" id="all-products">
                 <div class="container">
@@ -195,8 +211,7 @@
         </footer>
 
 
-         <a href="#" id="open_preferences_center">Update cookies preferences</a>
- 
+        <a href="#" id="open_preferences_center">Update cookies preferences</a>
 
         <script type="text/javascript" src="/js/main.js"></script>
         <script type="text/javascript" src="/js/products.js"></script>
