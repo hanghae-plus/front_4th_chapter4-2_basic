@@ -82,12 +82,19 @@
 
     <section class="hero">
       <picture>
-        <source media="(max-width: 575px)" srcset="images/Hero_Mobile.webp" />
         <source
+          width="864"
+          height="864"
+          media="(max-width: 575px)"
+          srcset="images/Hero_Mobile.webp"
+        />
+        <source
+          width="1440"
+          height="1155"
           media="(min-width: 576px) and (max-width: 960px)"
           srcset="images/Hero_Tablet.webp"
         />
-        <img src="images/Hero_Desktop.webp" />
+        <img width="2160" height="1005" src="images/Hero_Desktop.webp" />
       </picture>
 
       <div class="hero-content">
