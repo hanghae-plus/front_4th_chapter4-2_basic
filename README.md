@@ -36,3 +36,21 @@
 #### 참고
 
 ### 최종 성능 측정 결과
+
+#### 🎯 Lighthouse 점수
+
+| 카테고리       | 점수 | 상태 |
+| -------------- | ---- | ---- |
+| Performance    | 99%  | 🟢   |
+| Accessibility  | 95%  | 🟢   |
+| Best Practices | 75%  | 🟠   |
+| SEO            | 100% | 🟢   |
+| PWA            | 0%   | 🔴   |
+
+#### 📊 Core Web Vitals (2024)
+
+| 메트릭 | 설명                      | 측정값 | 상태 |
+| ------ | ------------------------- | ------ | ---- |
+| LCP    | Largest Contentful Paint  | 2.03s  | 🟢   |
+| INP    | Interaction to Next Paint | N/A    | 🟢   |
+| CLS    | Cumulative Layout Shift   | 0.011  | 🟢   |
