@@ -1,4 +1,4 @@
-name: HangHae Plus
+name: JavaScript 프로젝트 배포
 
 on:
   push:
@@ -14,11 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
+      # 빌드 과정이 필요한 경우에만 사용 (예: Webpack, Babel 등을 사용하는 경우)
+      # - name: Install dependencies
+      #   run: npm ci
+      #
+      # - name: Build
+      #   run: npm run build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -29,7 +30,9 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync out/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+          # 순수 JavaScript 프로젝트는 소스 디렉토리를 그대로 업로드
+          # 프로젝트 루트 디렉토리 또는 특정 디렉토리(예: public/)를 지정
+          aws s3 sync ./ s3://${{ secrets.S3_BUCKET_NAME }} --delete --exclude ".git/*" --exclude ".github/*" --exclude "node_modules/*" --exclude ".gitignore"
 
       - name: Invalidate CloudFront cache
         run: |
