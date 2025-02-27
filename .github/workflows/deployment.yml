@@ -21,15 +21,6 @@ jobs:
         githubToken: ${{ secrets.GITHUB_TOKEN }}
         compressOnly: true
 
-    # HTML, CSS, JS 최소화
-    - name: Minify assets (HTML, CSS, JS)
-      uses: esbuild-action@v0.0.4
-      with:
-        files: |
-          '*.html'
-          'css/*.css'
-          'js/*.js'
-
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
