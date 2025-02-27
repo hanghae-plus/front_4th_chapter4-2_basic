@@ -62,7 +62,35 @@ function displayProducts(products) {
 
 loadProducts();
 
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-  const temp = Math.sqrt(i) * Math.sqrt(i);
+function performHeavyCalculation() {
+  const totalIterations = 10000000;
+  const chunkSize = 100000; // 한 번에 처리할 반복 횟수
+  let currentIteration = 0;
+
+  function processChunk() {
+    // 현재 청크에서 처리할 반복 횟수 계산
+    const limit = Math.min(currentIteration + chunkSize, totalIterations);
+
+    // 청크 처리
+    for (let i = currentIteration; i < limit; i++) {
+      const temp = Math.sqrt(i) * Math.sqrt(i);
+    }
+
+    // 진행 상황 업데이트
+    currentIteration = limit;
+
+    // 모든 반복이 완료되었는지 확인
+    if (currentIteration < totalIterations) {
+      // 다음 청크를 처리하기 위해 setTimeout 사용
+      setTimeout(processChunk, 0);
+    } else {
+      console.log("무거운 계산 작업 완료");
+    }
+  }
+
+  // 첫 번째 청크 처리 시작
+  setTimeout(processChunk, 0);
 }
+
+// 무거운 계산 작업 시작
+performHeavyCalculation();
