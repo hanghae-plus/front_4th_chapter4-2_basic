@@ -66,4 +66,4 @@ loadProducts();
 
 const worker = new Worker(Worker);
 
-worker.postMessage({ action: "compute", value: 10_000_000_000 });
+worker.postMessage({ action: "compute" });
