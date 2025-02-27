@@ -19,7 +19,7 @@ function loadHighResImage(img) {
 }
 
 function preloadLowQualityImage() {
-  const images = document.querySelectorAll(".progressive-image");
+  const images = document.querySelectorAll("img.progressive-image");
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -34,5 +34,5 @@ function preloadLowQualityImage() {
 
 document.addEventListener("DOMContentLoaded", () => {
   preloadLowQualityImage();
+  showTopBar();
 });
-showTopBar();
