@@ -38,7 +38,6 @@ jobs:
           --cache-control "public, max-age=31536000" \
           --metadata-directive REPLACE \
           --content-type "text/html; charset=utf-8" \
-          --exclude "*" \
           --include "*.html" \
           --include "*.css" \
           --include "*.js" \
@@ -68,7 +67,8 @@ jobs:
       run: |
         aws s3 sync css/ s3://${{ secrets.S3_BUCKET_NAME }}/css \
           --exclude "*.html" \
-          --cache-control "public, max-age=604800, must-revalidate"  # 7일 (604800초)
+          --cache-control "public, max-age=604800, must-revalidate" \
+          --content-type "text/css; charset=utf-8"
     
     # JS 파일 캐시 설정
     - name: Set proper Cache-Control for JS files
