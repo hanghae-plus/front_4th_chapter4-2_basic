@@ -26,7 +26,7 @@
 
 ## 3. 개선 후 향상된 지표
 
-| ![first](../images/first.png) | ![last](../images/last.png) |
+| ![first](images/first.png) | ![last](images/last.png) |
 | ----------------------------- | --------------------------- |
 
 ---
