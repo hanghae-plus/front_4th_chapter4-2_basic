@@ -59,7 +59,7 @@
   - 목표: 0.34s 미만
  
 > 보시다시피 측정 도구에 따라 결과가 조금씩 다르지만, 전반적으로 **FCP와 LCP 개선이 작업의 주요 목표**가 될 것 같습니다. <br />
-FCP와 LCP를 개선하기 위해 사용하지 않는 CSS 삭제, 서버 응답 시간 단축, 리소스 로드 지연 제거 등의 방법으로 서비스 성능을 개선해나갈 예정입니다.
+> FCP와 LCP를 개선하기 위해 사용하지 않는 CSS 삭제, 서버 응답 시간 단축, 리소스 로드 지연 제거 등의 방법으로 서비스 성능을 개선해나갈 예정입니다.
 
 ## 4. 성능 개선 방법 및 과정
 
@@ -68,37 +68,80 @@ FCP와 LCP를 개선하기 위해 사용하지 않는 CSS 삭제, 서버 응답 
 - 이를 해결하기 위해 이미지 형식을 JPEG나 PNG 대신 압축 효율이 높은 Webp 또는 AVIF와 같은 최신 포맷으로 변환합니다.
 - 이는 이미지 품질을 유지하면서도 파일 크기를 크게 줄여주어 페이지 로드 시간을 단축하고 사용자 경험을 개선할 수 있습니다.
 
-## 2) 이미지 사이즈 최적화 (picture)
+### 2) 이미지 사이즈 최적화 (picture 태그)
 - `<picture>` 요소를 사용하여 설정한 뷰포트에 맞는 이미지가 로드되도록 설정했습니다.
 - `<picture>` 요소는 내부에서 WebP나 AVIF와 같은 고효율 포맷을 우선 설정하고, 브라우저가 지원하지 않을 경우 JPEG나 PNG와 같은 기본 포맷을 로드합니다.
-- 아래 코드에서 브라우저는 Webp를 우선 시도하고, 지원하지 않으면 마지막 img 태그의 jpg 이미지를 로드합니다.
+```html
+  <picture>
+    <source
+      width="576"
+      height="576"
+      media="(max-width: 575px)"
+      srcset="images/Hero_Mobile.webp"
+    />
+    <source
+      width="960"
+      height="770"
+      media="(min-width: 576px) and (max-width: 960px)"
+      srcset="images/Hero_Tablet.webp"
+    />
+    <img width="1920" height="893" src="images/Hero_Desktop.webp" alt="Hero-image" />
+  </picture>
+```
 
-### 2) 이미지 지연 로딩 처리 (lazy loading)
+### 3) 이미지 지연 로딩 처리 (lazy loading)
 - `<img>` 요소에 `loading` 속성을 추가하여 이미지의 로딩을 사용자가 해당 이미지에 가까이 스크롤할 때까지 지연시키도록 합니다.
 - 이로인해 필요한 경우에만 리소스가 로드되어 초기 페이지 로드 속도가 빨라지고 네트워크 사용량을 감소시킬 수 있습니다.
+```javascript
+const img = document.createElement('img');
+img.loading = 'lazy';
+```
 
-### 3) 중요하지 않은 스크립트 지연 처리 (defer)
+### 4) 중요하지 않은 스크립트 지연 처리 (defer)
 - 브라우저는 `defer` 속성이 있는 스크립트를 비동기적으로 다운로드를 합니다.
 - 쿠키 동의에 대한 스크립트는 비교적 중요하지 않은 스크립트에 해당하기 때문에 `defer`속성을 통해 스크립트를 다운하는 도중에도 HTML 파싱이 멈추지 않도록 처리했습니다.
 
-### 4) 이미지 태그에 `alt` 속성 추가
+### 5) 이미지 태그에 `alt` 속성 추가
 - `<img>` 태그에 이미지 대체 텍스트를 입력하는 alt 속성을 추가했습니다.
 - 이는 검색 엔진 최적화(SEO)에 대한 가시성을 증가시켜 웹 접근성 향상에 도움이 됩니다.
 
-### 5) 불필요한 css 제거
+### 6) 불필요한 css 제거
 - 사용되지 않는 CSS는 브라우저의 렌더링 트리 생성 속도를 느리게 합니다.
 - `hidden` 클래스는 사용되지 않는 클래스로 삭제해줍니다.
 
-### 6) 로컬 폰트를 사용하여 폰트 최적화
+### 7) 로컬 폰트를 사용하여 폰트 최적화 (woff 형식)
+- 로컬 폰트는 웹 페이지에 포함되어 있어서 웹 폰트보다 상대적으로 초기 로딩 속도가 빠릅니다.
+- 외부 서버에서 폰트를 다운로드하는 네트워크 부하를 감소시킬 수 있습니다.
+- 필요한 특정 폰트만 포함시켜 사용하면 효율적인 리소스 관리가 가능합니다.
+- 특히, woff 파일 형식은 ttf 형식에 비해 더 높은 압축률을 제공하여 로딩 속도가 더욱 빨라집니다.
+
+```css
+@font-face {
+  font-family: 'Heebo';
+  src: url('fonts/Heebo-Medium.woff2') format('woff');
+  font-display: swap;
+  font-weight: 600;
+  font-style: medium;
+}
+```
 
 ## 5. 성능 개선 결과 및 분석
 
 |측정 항목|lighthouse|core web vitals|
 |------|---|---|
-||![after-lighthouse](https://github.com/user-attachments/assets/2057aa32-ffaf-402f-8863-439e015af7cc)|![after-pageSpeed Insights](https://github.com/user-attachments/assets/3ebfe0ee-719f-429f-ae0d-b5b1ec5c59c0)|
-|성능 점수|🟧 88|🟢 97|
-|FCP|🟧 2.1s|🟢 0.8s|
-|LCP|🟧 3.7s|🟢 2s|
+||![after-lighthouse](https://github.com/user-attachments/assets/ca5a4d85-9ed3-4361-9cb8-83ae55a84a01)|![after-pageSpeed Insights](https://github.com/user-attachments/assets/3ebfe0ee-719f-429f-ae0d-b5b1ec5c59c0)|
+|성능 점수|🟢 99|🟢 97|
+|FCP|🟢 0.8s|🟢 0.8s|
+|LCP|🟢 2s|🟢 2s|
 |TBT|🟢 10ms|🟢 170ms|
-|CLS|🟢 0.01|🟢 0.001|
-|Speed Index|🟢 2.1s|🟢 1.4s|
+|CLS|🟢 0|🟢 0.001|
+|Speed Index|🟢 0.8s|🟢 1.4s|
+
+- 성능점수가 60점대에서 90점대로 확연히 높아져 100에 가까운 점수로 크게 개선하는 성과를 이루었습니다.
+- FCP는 2.4초에서 0.8초로 초기에 목표로 했던 1.8초 이하로 초기 로딩 속도가 크게 향상되었습니다.
+- LCP는 기존에 매우 높은 수치로 절감이 반드시 필요했었는데 개선 결과 2초까지 단축되어 컨텐츠 렌더링 시간이 크게 감소하였고, 이는 사용자 이탈율을 막는 효과를 기대해볼 수 있습니다.
+- 성능 개선 방법 중에서 특히 이미지 최적화와 폰트 최적화가 성능 개선에 큰 영향을 주었습니다.
+
+> 측정 도구를 통해 개선 변화를 시각적으로 나타내고 정확하게 수치화하니 성능 개선 효과를 크게 느낄 수 있었습니다. <br />
+> 백엔드 혹은 인프라 최적화만이 아닌 프론트엔드 측면에서도 웹 성능 최적화를 진행할 수 있고, 이는 큰 기대효과를 가져다 준다고 생각합니다. <br />
+> 페이지 로딩 속도가 빨라지니 사용자 경험이 향상되고 네트워크 트래픽이 절약되어 자연스레 비즈니스에도 긍정적인 기여를 줄 수 있다는 점을 깨달았습니다. <br />
