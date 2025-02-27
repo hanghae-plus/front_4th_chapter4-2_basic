@@ -8,6 +8,9 @@ function displayProducts(products) {
   // Find the container where products will be displayed
   const container = document.querySelector("#all-products .container");
 
+  // Create a document fragment to batch DOM updates
+  const fragment = document.createDocumentFragment();
+
   // Iterate over each product and create the HTML structure safely
   products.forEach((product) => {
     // Create the main product div
@@ -56,9 +59,12 @@ function displayProducts(products) {
     productElement.appendChild(pictureDiv);
     productElement.appendChild(infoDiv);
 
-    // Append the new product element to the container
-    container.appendChild(productElement);
+    // Append to fragment instead of directly to container
+    fragment.appendChild(productElement);
   });
+
+  // Append the fragment to the container (single DOM update)
+  container.appendChild(fragment);
 }
 
 loadProducts();
