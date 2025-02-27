@@ -1,17 +1,15 @@
 async function loadProducts() {
-    const response = await fetch("https://fakestoreapi.com/products");
+    const response = await fetch('https://fakestoreapi.com/products');
     const products = await response.json();
-    displayProducts(products);  
+    displayProducts(products);
 }
 
 function displayProducts(products) {
-
     // Find the container where products will be displayed
     const container = document.querySelector('#all-products .container');
 
-   
     // Iterate over each product and create the HTML structure safely
-    products.forEach(product => {
+    products.forEach((product) => {
         // Create the main product div
         const productElement = document.createElement('div');
         productElement.classList.add('product');
@@ -22,7 +20,8 @@ function displayProducts(products) {
         const img = document.createElement('img');
         img.src = product.image;
         img.alt = `product: ${product.title}`;
-        img.width=250;
+        img.width = 250;
+        img.classList.add('lazy');
         pictureDiv.appendChild(img);
 
         // Create the product info div
@@ -39,9 +38,7 @@ function displayProducts(products) {
 
         const price = document.createElement('h3');
         price.classList.add('price');
-        const priceSpan = document.createElement('span');
-        priceSpan.textContent = `US$ ${product.price}`;
-        price.appendChild(priceSpan);
+        price.textContent = `US$ ${product.price}`;
 
         const button = document.createElement('button');
         button.textContent = 'Add to bag';
@@ -59,17 +56,32 @@ function displayProducts(products) {
         // Append the new product element to the container
         container.appendChild(productElement);
     });
-
-    
-
 }
 
+function setLazyLoading() {
+    document.addEventListener('DOMContentLoaded', function () {
+        const lazyImages = document.querySelectorAll('img.lazy');
 
+        if ('IntersectionObserver' in window) {
+            let observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        let img = entry.target;
+                        img.src = img.dataset.src; // 💡 src 적용
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach((img) => observer.observe(img));
+        }
+    });
+}
 
 loadProducts();
-
+setLazyLoading();
 // Simulate heavy operation. It could be a complex price calculation.
 for (let i = 0; i < 10000000; i++) {
     const temp = Math.sqrt(i) * Math.sqrt(i);
 }
-
