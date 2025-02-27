@@ -22,7 +22,8 @@ function displayProducts(products) {
         img.src = product.image;
         img.alt = `product: ${product.title}`;
         img.width=250;
-        loading="lazy" // 지연 로드 적용
+        img.setAttribute('loading', 'lazy'); // 지연 로드 적용
+        img.style.objectFit = 'cover';
         pictureDiv.appendChild(img);
 
         // Create the product info div
@@ -61,11 +62,21 @@ function displayProducts(products) {
     });
 }
 
+window.onload = () => {
+    let status = 'idle';
 
-loadProducts();
+    let productSection = document.querySelector('#all-products');
 
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-    const temp = Math.sqrt(i) * Math.sqrt(i);
+    window.onscroll = () => {
+        let position = productSection.getBoundingClientRect().top - (window.scrollY + window.innerHeight);
+
+        if (status == 'idle' && position <= 0) {
+            loadProducts();
+
+            for (let i = 0; i < 10000000; i++) {
+                const temp = Math.sqrt(i) * Math.sqrt(i);
+            }
+        }
+    }
 }
 
