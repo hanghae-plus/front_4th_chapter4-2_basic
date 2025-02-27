@@ -28,11 +28,11 @@ function displayProducts(products) {
     const infoDiv = document.createElement("div");
     infoDiv.classList.add("product-info");
 
-    const category = document.createElement("h5");
+    const category = document.createElement("h1");
     category.classList.add("categories");
     category.textContent = product.category;
 
-    const title = document.createElement("h4");
+    const title = document.createElement("h2");
     title.classList.add("title");
     title.textContent = product.title;
 
