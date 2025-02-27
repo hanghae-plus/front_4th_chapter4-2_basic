@@ -29,27 +29,27 @@ function displayProducts(products) {
         const infoDiv = document.createElement('div');
         infoDiv.classList.add('product-info');
 
-        const category = document.createElement('h5');
-        category.classList.add('categories');
-        category.textContent = product.category;
-
-        const title = document.createElement('h4');
-        title.classList.add('title');
-        title.textContent = product.title;
-
         const price = document.createElement('h3');
         price.classList.add('price');
         const priceSpan = document.createElement('span');
         priceSpan.textContent = `US$ ${product.price}`;
         price.appendChild(priceSpan);
 
+        const title = document.createElement('h4');
+        title.classList.add('title');
+        title.textContent = product.title;
+
+        const category = document.createElement('h5');
+        category.classList.add('categories');
+        category.textContent = product.category;
+
         const button = document.createElement('button');
         button.textContent = 'Add to bag';
 
         // Append elements to the product info div
-        infoDiv.appendChild(category);
-        infoDiv.appendChild(title);
         infoDiv.appendChild(price);
+        infoDiv.appendChild(title);
+        infoDiv.appendChild(category);
         infoDiv.appendChild(button);
 
         // Append picture and info divs to the main product element
