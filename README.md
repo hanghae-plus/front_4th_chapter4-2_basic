@@ -49,6 +49,15 @@
 
 - Google Tag Manager script 태그는 동기적으로 실행시 페이지 로딩 속도 저하 발생 오지가 있어 **async** 적용히였습니다.
 
+- 불필요한 for 문 삭제
+
+```js
+// Simulate heavy operation. It could be a complex price calculation.
+for (let i = 0; i < 10000000; i++) {
+  const temp = Math.sqrt(i) * Math.sqrt(i);
+}
+```
+
 ## 폰트 최적화
 
 - google embed 코드에서 ttf 파일을 로컬에 설치하여 호출하는 방식으로 변경하였습니다. <br/>
