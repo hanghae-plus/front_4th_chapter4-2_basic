@@ -33,8 +33,6 @@
 | 폰트 최적화   | 1. 프리커넥트 사용 <br> 2. 미디어 속성과 onload 활용 <br> 3. `noscript` 태그 추가            |
 | 이미지 최적화 | 1. 이미지 포맷 변경(webp) <br> 2. `<picture>` 태그 사용 <br> 3. `img`태그의 lazy 속성으로 추가 |
 
-#### 참고
-
 ### 최종 성능 측정 결과
 
 #### 🎯 Lighthouse 점수
@@ -54,3 +52,27 @@
 | LCP    | Largest Contentful Paint  | 2.03s  | 🟢   |
 | INP    | Interaction to Next Paint | N/A    | 🟢   |
 | CLS    | Cumulative Layout Shift   | 0.011  | 🟢   |
+
+### 참고
+
+- Core Web Vitals 
+
+1) LCP
+
+2) INP
+
+3) CLS
+
+- 접근성
+
+- 스크립트 최적화 
+
+- 폰트 최적화 
+
+- 이미지 최적화
+
+1) 왜 이미지 포맷을 바꾸었는가?
+
+2) 왜 `picture`태그를 사용했는가?
+
+3) 지연로딩이란?
